@@ -1,0 +1,207 @@
+1  hostnamectl set-hostname testguvi
+    2  free -m
+    3  free -h
+    4  free -G
+    5  free -g
+    6  free -h
+    7  free man
+    8  man free
+    9  df
+   10  df -h
+   11  man df
+   12  history 
+   13  pwd
+   14  ls
+   15  cd /
+   16  ls
+   17  man ls
+   18  ls -a
+   19  ls -ltrh
+   20  cd /var/
+   21  pwd
+   22  ls -lthr
+   23  mkdir vikas
+   24  ls -ltrh
+   25  cd vikas/
+   26  pwd
+   27  cd -
+   28  ls -lthr
+   29  rmdir vikas/
+   30  ls -lthr
+   31  mkdir vikas
+   32  ls -lthr
+   33  rm -rf vikas/
+   34  ls -lthr
+   35  touch abc
+   36  ls -lthr
+   37  rmdir abc
+   38  rm -rf abc 
+   39  ls -lthr
+   40  touch abc
+   41  vim abc 
+   42  ls -lthr
+   43  cp abc /home/
+   44  cd /home/
+   45  ls -lthr
+   46  cat abc 
+   47  mv abc /tmp/
+   48  ls -lthr
+   49  cd /tmp/
+   50  ls -lthr
+   51  cp abc /home/
+   52  ls -lthr
+   53  mv abc /home/
+   54  ls -lthr
+   55  touch abc
+   56  ls -lthr
+   57  mv abc def
+   58  ls -lthr
+   59  history 
+   60  vim abc.txt
+   61  vim abc.txt 
+   62  cat abc.txt 
+   63  ls -lthr
+   64  cd /root/
+   65  ls -lthr
+   66  cd /
+   67  ls -lthr
+   68  touch abc
+   69  ls -lthr
+   70  useradd vikas
+   71  su vikas
+   72  cd /home/vikas/
+   73  ls -lthr
+   74  useradd mukesh
+   75  ls -lthr
+   76  cat /etc/passwd
+   77  ls -lthr
+   78  chown mukesh:mukesh def
+   79  ls -lthr
+   80  su vikas
+   81  ls -lthr
+   82  useradd amit
+   83  ls -lthr
+   84  cd /home/mvik
+   85  cd /home/
+   86  ls -lthr
+   87  vim 123.txt
+   88  su amit
+   89  ls -lthr
+   90  chmod 777 123.txt 
+   91  ls -lthr
+   92  touch def
+   93  ls -lthr
+   94  chmod 140 def 
+   95  ls -lthr
+   96  vim def 
+   97  chmod 110 def 
+   98  ls -lthr
+   99  vim def 
+  100  touch abc
+  101  ls -lthr
+  102  chmod 345 abc
+   103  ls -lthr
+  104  chown mukesh:vikas abc
+  105  ls -lthr
+  106  chmod 755 abc 
+  107  ls -lthr
+  108  su amit
+  109  ls -lthr
+  110  vim abcihihh.txt
+  111  cd /home/
+  112  ls -lthr
+  113  sudo -i
+  114  sudo su
+  115  cat /etc/passwd
+  116  cat /etc/shadow
+  117  userdel vikas
+  118  userdel mueksh
+  119  userdel mukesh
+  120  cat /etc/shadow
+  121  cd /
+  122  ls -lthr
+  123  pwd
+  124  cd /home/
+  125  pwd
+  126  cd /root/
+  127  ls -lthr
+  128  cd /
+  129  ls -lthr
+  130  cd /root/
+  131  pwd
+  132  cd /
+  133  ls -lthr
+  134  pwd
+  135  cd /home/vikas/
+  136  pwd
+  137  cd /
+  138  ls -lthr
+  139  cd /root/
+  140  cd /
+  141  cd /boot/
+  142  ls -lthr
+  143  cd grub2/
+  144  ls -lthr
+  145  vim grub.cfg 
+  146  cd ..
+  147  ls -lthr
+  148  cd /
+  149  ls -lthr
+  150  cd /root/
+  151  ls -lthr
+  152  cd /
+  153  ls -lthr
+  154  cd /dev/
+  155  ls -lthr
+  156  cd /
+  157  ls -lthr
+  158  cd /etc/
+  159  ls -lthr
+  160  cat /etc/passwd
+  161  ls -lthr
+  162  cat passwd
+  163  ls -lthr
+  164  vim group
+  165  cd /bin/
+  166  ls -lthr
+  167  cd /sbin/
+  168  ls -lthr
+  169  cd /opt/
+  170  ls -lthr
+  171  cd /proc/
+  172  ls -lthr
+  173  cd /lib
+  174  ls -lthr
+  175  cd /tmp/
+  176  ls -lthr
+  177  cd /home/
+  178  ls -lthr
+  179  useradd vinit
+  180  ls -lthr
+  181  cd /var/
+  182  ls -lthr
+  183  cd log/
+  184  ls -lthr
+  185  cd /run/
+  186  ls -lthr
+  187  cd /mnt/
+  188  ls -lthr
+  189  cd /media/
+  190  ls -lthr
+  191  df -TH
+  192  useradd abhi
+  193  adduse abhi
+  194  addusre abhi
+  195  adduser abhi
+  196  adduser abhi1
+  197  sudo -i
+  198  sudo su
+  199  pwd
+  200  ls -lthr
+  201  clear
+  202  history 
+  203  cd /home/
+  204  ls -lthr
+  205  sudo su
+  206  pwd
+  207  history 

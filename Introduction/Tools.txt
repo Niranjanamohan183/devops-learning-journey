@@ -1,5 +1,3 @@
-Introduction to Operating Systems
-
 Tools Requried :
   1. Ubuntu WSL
   2. VS Code
