@@ -1,7 +1,49 @@
 Introduction to Operating Systems
 
-Tools Requried :
-  1. Ubuntu WSL
-  2. VS Code
-  3. AWS Account
-  4. GitHub Account
+
+OS
+
+
+LINUX
+
+SHELL
+
+KERNEL
+
+LINUX vs UNIX
+
+WINDOWS vs LINUX
+
+
+
+
+
+
+
+
+
+
+Launch EC2 Instance in AWS
+
+Search EC2 in the search bar of AWS account 
+Give the name of the server of your own choice 
+Select the Number of instances you wanted to launch in our case we are doing 1 server .
+Select application and OS image Amazon linux in out case .
+Select the instance type t2.micro (This is a free tier eligible resource)
+Create a key pair for the very first time you are creating a server . you can use the same key for other servers also 
+if you are creating the key for the very first time give Key pair name of your own choice then Key pair type should be RSA and Private key file format should be .pem
+Network setting should be deafult 
+Configure store setting should also be default for now .
+Then click on launch instances 
+
+** 2/2 check pass in server - The instance is completed created and passed both the system status check and the instance status check
+
+
+After 
+# Key permission
+chmod 400 (keyname) .pem //To give permission of the key first go to the proper directory will get errors
+
+
+Public Ipv4 address
+
+  13.232.71.237 <like wise>
