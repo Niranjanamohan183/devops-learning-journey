@@ -1,0 +1,15 @@
+FILE PERMISSION 
+---------------
+
+Three types of users
+   u    => User/owner
+   g    => group
+   o    => other
+
+Three types of permission
+   r   => read    (4)
+   w   => write   (2)
+   x   => execute (1)
+
+Total 7 , Its the highest level of permission
+
