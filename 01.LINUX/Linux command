@@ -7,6 +7,8 @@ mv        => Move/rename file
 rm        => Delete a file
 cat       => View a file
 chmod     => To give permission 
+history   => Gives the history of commands which used
+
 
 
 ls command
@@ -28,6 +30,7 @@ ls command
    ls /<home> => gives the list in the given directory
    ls -lh   => shows detailed view in human readable form
    ls -lah  => shows everything clearly
+   ls -lthr => shows the detailed view of files or folder in a detailed view like who created
 
 / => Gives Top most directory OS vs ~ => Give the Top most directory of the current user
 
@@ -109,3 +112,7 @@ rm command (Deletes the file and directory)
    rm -r <directory_name>      => To delete directory
    rm -i <file.txt>            => Safer asks before deleting
    rm -f <file_name>           => Force delete
+
+
+
+
