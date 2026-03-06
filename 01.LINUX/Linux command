@@ -1,0 +1,111 @@
+cd /      => To go into the particular directory
+pwd       => print working directory
+mkdir     => To create a new directory(creating the folder)
+touch     => To create a new file 
+cp        => Copy file
+mv        => Move/rename file
+rm        => Delete a file
+cat       => View a file
+chmod     => To give permission 
+
+
+ls command
+   ls        => Gives list files and directories in the current directory.
+   ls -l    => shows detailed information 
+      (-rw-r--r-- 1 ec2-user ec2-user 0 Mar 6 10:20 test.txt)
+      | Column       | Meaning          |
+      | ------------ | ---------------- |
+      | `-rw-r--r--` | File permissions |
+      | `1`          | Number of links  |
+      | `ec2-user`   | Owner            |
+      | `ec2-user`   | Group            |
+      | `0`          | File size        |
+      | `Mar 6`      | Date             |
+      | `test.txt`   | File name        |
+
+   ls - a   => shows hidden files
+   ls -la   => detailed view + hidden files
+   ls /<home> => gives the list in the given directory
+   ls -lh   => shows detailed view in human readable form
+   ls -lah  => shows everything clearly
+
+/ => Gives Top most directory OS vs ~ => Give the Top most directory of the current user
+
+cd command
+   cd        => Changing directory
+   cd ..     => Go one diectory back
+   cd -      => Goes to previous directory
+   cd ~      => Goes to home directory of the specific user
+   cd /      => Goes to root directory of the OS
+   cd /home/ => Goes to specific directory inside the directory
+   cd ../..  => Go back two directories
+   cd ~<user_name> => Goes to the given user
+
+mkdir command
+   mkdir<dir_name> => Creates the directory
+   mkdir project1 project2 => Can create multiple directories
+   mkdir /home/ec2-user/<dir_name>  => Creates in the specific location
+   
+touch command
+   touch file.txt => Creates the file
+   touch touch app.log server.txt nginx.log  => Can create multiple file 
+   touch /home/ec2-user/test.txt  => Can create file in particular dir 
+
+
+READ & WRITE FILE
+-----------------
+
+(cat-to read, echo-to write)
+
+echo "<Text>" > <file_name>.txt   => Writes inside the file (>) This overrides the existing text inside the given file 
+
+echo "<Text>" >> <file_name>.txt   => Writes inside the file (>) This append the existing text inside the given file 
+
+EG : echo "DevOps learning" > file1.txt
+     echo "Linux commands practice" >> file1.txt 
+   
+    
+cat <file_name>.txt           => This show the content inside the file
+
+
+To WRITE LARGE TEXT:- nano or vi
+
+ Vi command (creates file and open editor, if file is present only opens editor)
+    vi <file_name>.txt - This opens the vi editor 
+    | Command | Purpose             |
+    | ------- | ------------------- |
+    | `i`     | Insert text         |
+    | `ESC`   | Exit insert mode    |
+    | `:w`    | Save                |
+    | `:q`    | Quit                |
+    | `:wq`   | Save & quit         |
+    | `:q!`   | Quit without saving |
+
+nano command (creates file and open editor, if file is present only opens editor )
+
+    nano <file_name>.txt - This opens nano editor
+    | Shortcut | Function    |
+    | -------- | ----------- |
+    | CTRL + O | Save file   |
+    | CTRL + X | Exit editor |
+    | CTRL + K | Cut line    |
+    | CTRL + U | Paste line  |
+    | CTRL + W | Search text |
+    | CTRL + G | Help        |
+
+
+mv command (Used to move files/directories or rename them)
+   
+   mv <file1.txt> <file2.txt> => move file1 content to file2 
+   mv <dir1> <dir2>           => move content in dir 1 to dir 2
+
+   EG :- mv config.txt config_backup.txt
+
+rm command (Deletes the file and directory) 
+   //files usually cannot be recovered.
+
+   rm <filename>               => deletes the file 
+   rm <file1> <file2>          => Can also delete multiple files
+   rm -r <directory_name>      => To delete directory
+   rm -i <file.txt>            => Safer asks before deleting
+   rm -f <file_name>           => Force delete
