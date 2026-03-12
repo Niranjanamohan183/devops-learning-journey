@@ -7,3 +7,4 @@ read/write/execute it.
 
 create a file named as abc.txt where all the users or everyone can read and execute , 
 group can read only and user can execute and write only 
+
