@@ -13,3 +13,6 @@ Three types of permission
 
 Total 7 , Its the highest level of permission
 
+sudo command
+   sudo -i    => To become a root user
+     
