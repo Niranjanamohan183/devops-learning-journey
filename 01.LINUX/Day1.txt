@@ -14,15 +14,6 @@ LINUX vs UNIX
 
 WINDOWS vs LINUX
 
-
-
-
-
-
-
-
-
-
 Launch EC2 Instance in AWS
 
 Search EC2 in the search bar of AWS account 
