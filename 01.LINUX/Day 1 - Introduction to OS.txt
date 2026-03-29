@@ -101,3 +101,13 @@ What is distribution?
   5 Team Skills
   6 Cloud and DevOps Strategy
   7 Enterprise Ecosystem
+
+
+====> Can we run linux inside windows ?
+    YES!
+    1. WSL (Windows Subsystem for Linux) : Which runs linux inside windows
+    2. VM (Virtual Machine) : Tools like Virtual Box, VMWare <Linuz runs as a seperate OS inside windows>
+    3. Dual Boot : Install Both OS on same system <Need to choose OS at startup>
+
+
+====> Can we run windows inside linux ?
