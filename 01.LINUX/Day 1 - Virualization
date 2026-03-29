@@ -1,0 +1,19 @@
+What is Virtualization and Virtual Machine?
+
+  Virtualization = creating a virtual version of physical resource
+
+How it works: 
+• A layer called hypervisor sits on a hardware
+• It divides
+   o CPU
+   o RAM
+   o Storage
+• Creates multiple virtual systems
+
+What is a Virtual Machine ?
+Virtual machine: Software based computer
+It has
+• OS
+• CPU (Virtual CPU)
+• RAM (virtual)
+• Disk (Virtual)

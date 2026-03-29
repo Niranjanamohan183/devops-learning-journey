@@ -111,3 +111,77 @@ What is distribution?
 
 
 ====> Can we run windows inside linux ?
+    YES!
+    1. Virual Machine
+    2. Wine (Compatibility layer) : Runs windows apps on Linux 
+    3. Dual Boot : Install both OS
+
+
+1 Boot (system booting)
+ Starting the computer from OFF state
+   • Power ON
+   • BIOS/UEFI starts
+   • Hardware checks (POST)
+   • Bootloader loads OS
+   • Kernel loads into RAM
+   • OS starts services -> login screen appears
+ Analogy: Starting a car from completely OFF
+
+2 Restart (Reboot)
+ Turning off and on automatically 
+   • OS will close all processes
+   • Clears RAM
+   • Reloads kernel
+   • Start fresh
+ Analogy: Restarting your phone when it hangs to fix temporary issues
+
+3 Start (Power On)
+  Processing power button to turn system ON - it triggers -> boot process
+   • It sends signal to motherboard
+   • Boot sequences will begin
+  Analogy: Switching on electricity in house
+
+4 Hibernate 
+  Saves current state -> turn OFF completely
+    • RAM data -> saved to hard disk
+    • Power = 0
+    • On resume -> state restored
+  Analogy: like bookmarking a page in book
+
+5 Shut Down
+  Completely turning off system
+    • All process stopped
+    • RAM cleared
+    • OS safely exits
+    • Power OFF
+  Analogy: closing shop for a day
+
+6 Sleep 
+  Pausing system but keeping RAM active
+    • RAM powered
+    • CPU mostly off
+    • Quick resume
+  
+Sleep vs Hibernate
+
+ Feature          |   Sleep     |   Hibernate   |
+ -----------------|-------------|---------------|            
+ Power use        |    Low      |      Zero     |
+ Resume speed     |    Fast     |      Slow     |
+ Data Storage     |    RAM      |      Disk     |
+ ------------------------------------------------
+
+7 Log off
+  Exit current user session
+    • Closes user processes
+    • Keeps system ON
+
+8 Lock
+  Locks screen without closing apps
+    • Sessions remains active
+    • It requires password to access
+
+9 Force Shutdown
+  Holding power button -> immediate shutdown
+    • Data loss
+    • File corruption as there is no proper OS shutdown
