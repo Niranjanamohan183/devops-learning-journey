@@ -1,49 +1,103 @@
 Introduction to Operating Systems
 
+Main Components of OS:
 
-OS
-
-
-LINUX
-
-SHELL
-
-KERNEL
-
-LINUX vs UNIX
-
-WINDOWS vs LINUX
-
+1. Kernel (core of OS)
+  Controls CPU, Memory, Devices
+2. System Calls
+  Interface between OS
+3. File System
+  Organize Data (files/folders)
+4. Device Drivers
+  Communicate with hardware
+5. User Interface
+  CLI(Terminal) or GUI (Windows/Mac OS)
 
 
 
+Tasks of an OS
+
+Major responsibilites : (Process Management, Memory Management, File Management, Device Management, Security)
 
 
+Types Of OS -(linux, windows, mac)
+
+#LINUX:
+  -> Open source powerhouse = Free access to code + Freedom to change it
+ Features
+ • Open Source (free and customizable)
+ • Strong community support
+ • Extremely lightweight and powerful
+ • Excellent for servers and development
+ Popular Distros:
+ • Ubuntu
+ • Kali Linux
+ • Debian
+ • Fedora
+ Use Cases
+ ➢ Cloud
+ ➢ DevOps
+ ➢ Web servers (90% + Interent runs on linux)
 
 
+What is distribution?
+  A distribution = Linux Kernel + software + tools + Interface
+  Linux is a Unix-like OS kernel combined with the tools -> become a full OS(distribution)
 
 
-Launch EC2 Instance in AWS
+#UNIX: 
+  -> One of the oldest operating system
+  -> Developed at Bell Labs(1970s)
+  -> Designed for multiuser + multitasking system
+ Features
+ • Strong security and permission models
+ • Highly stable and reliable
+ • Written mostly in C language
+ • Designed for servers and enterprise systems
+ Examples
+ • IBM AIX
+ • HP-UX
+ • Solaris
+ Use Cases:
+ • Banking systems
+ • Telecom Infrastructure
+ • Large enterprise servers
+ UNIX as a parent of Linux and macOS
 
-Search EC2 in the search bar of AWS account 
-Give the name of the server of your own choice 
-Select the Number of instances you wanted to launch in our case we are doing 1 server .
-Select application and OS image Amazon linux in out case .
-Select the instance type t2.micro (This is a free tier eligible resource)
-Create a key pair for the very first time you are creating a server . you can use the same key for other servers also 
-if you are creating the key for the very first time give Key pair name of your own choice then Key pair type should be RSA and Private key file format should be .pem
-Network setting should be deafult 
-Configure store setting should also be default for now .
-Then click on launch instances 
 
-** 2/2 check pass in server - The instance is completed created and passed both the system status check and the instance status check
+# LINUX vs WINDOWS
 
-
-After 
-# Key permission
-chmod 400 (keyname) .pem //To give permission of the key first go to the proper directory will get errors
+ When to use Windows?
+  -> You want ease of use
+  -> Regular office work or gaming
+  -> Need specific software (Ms office, Adobe)
+  Windows = Ease + Compatibility + Desktop
+ When to use LINUX?
+  -> You want performance + Controls
+  -> You like customization
+  -> You are into programming/Devops/Cloud
+  Linux = power + control + servers
 
 
-Public Ipv4 address
+====>Why Linux is Lightweight ?
+       Minimal background process, runs only essential services,no unnecessary apps by default as as result uses less RAM,CPU and storage
 
-  13.232.71.237 <like wise>
+====>How an organization decides? (linux or windows)
+
+  1 Start with the Use Case
+      Choose Linux when
+        • Running Web servers, APIs, microservices
+        • Using cloud platform
+        • Need high performance + automation
+      Choose Windows when
+        • Use microsoft ecosystem
+        • Need tools like
+            o Active directory
+            o NET applications
+            o Microsoft office
+  2 Cost Consideration
+  3 Security Requirements
+  4 Application Compatibility
+  5 Team Skills
+  6 Cloud and DevOps Strategy
+  7 Enterprise Ecosystem
