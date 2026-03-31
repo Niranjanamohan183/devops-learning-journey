@@ -12,7 +12,7 @@ pwd = present working directory
 ls = list files and folder in the 
 ls -a  = To list all hidden files and folder
 ls -l = long listing command
-cd    = Move to specific directory </home>
+cd    = Move to specific directory <\home>
 cd ..  = Move one step back
 cd ~   = Go to home directory
 
@@ -22,3 +22,36 @@ mkdir <folder_name>   = Create a folder/directory
 touch <file_name>     = To Create a empty file
 cp<file_name> <folder_name> = To copy the file to give folder
 mv <old_file_name> <new_file_name> = To rename the file 
+rm <file_name>   = To remove the file
+
+cp (Copy) mv (move) rm (delete)
+
+Shortcuts
+---------
+
+=>Create multiple files in a folder
+
+touch <file1><file2><file3>
+
+=>Create multiple directories
+
+mkdir -p project/src/components
+
+=>Copy entire folder(Duplicate folder)
+
+cp -r <folder_name><new_folder>
+
+=>Move multiple files
+
+mv <file1><file2><file3><folder>/
+
+Understand loops(repetition/iteration)
+----------------
+
+=> Goal : Create 10 files
+
+Loop version 
+  for i in{1..10}; do touch file$i.txt; done
+
+touch version
+   touch file{1..10}.txt
