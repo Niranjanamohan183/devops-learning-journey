@@ -1,0 +1,24 @@
+Linux Commands
+---------------
+Text-based instructions that you type into a terminal (command line) to the linux operating systems what to do
+
+There are some specific commands based on distribution - ubuntu, centos
+
+<commands are case sensitive - >
+
+Navigate to system
+
+pwd = present working directory 
+ls = list files and folder in the 
+ls -a  = To list all hidden files and folder
+ls -l = long listing command
+cd    = Move to specific directory </home>
+cd ..  = Move one step back
+cd ~   = Go to home directory
+
+Create & Manage Files/Folder
+
+mkdir <folder_name>   = Create a folder/directory  
+touch <file_name>     = To Create a empty file
+cp<file_name> <folder_name> = To copy the file to give folder
+mv <old_file_name> <new_file_name> = To rename the file 
