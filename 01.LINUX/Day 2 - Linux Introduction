@@ -7,6 +7,7 @@ There are some specific commands based on distribution - ubuntu, centos
 <commands are case sensitive - >
 
 Navigate to system
+..................
 
 pwd = present working directory 
 ls = list files and folder in the 
@@ -55,3 +56,77 @@ Loop version
 
 touch version
    touch file{1..10}.txt
+
+
+Package Manager
+...............
+
+A Package manager is tool that helps you to 
+-> Install software
+-> Update software
+-> Remove software
+-> Manage dependencies automatically
+
+
+Ubuntu : apt (Package Manager)
+
+Use Case: Install webserver (which is used to host web application)
+
+Commands: sudo 
+1. sudo apt update     # refresh Package list
+2. sudo apt upgrade    # upgrade all Package 
+3. sudo apt install <package_name>      # to install a package
+  -> sudo apt install -y nginx          # to install the nginx package with y auto approval 
+4. sudo systemctl status <package_name> # to get the status for package
+
+Tasks
+
+
+sudo : elevated privileges. In linux sudo stands for "SuperUser Do". It is a command used in linux which allows  anormal user to execute commands with elevated 
+       (aadministrator/root) privileges
+
+
+Case Study 1: New server setup 
+Scenario: Prepare a fresh linux server for development
+
+You should think You need to update and upgrade system and install essential tools
+
+Tool                          Why we need
+git                           Version control
+curl                          API calls/dowloads
+wget                          File downloads
+vim                           File editing
+
+
+# Step 1 : Update System
+sudo apt update
+
+#Step 2: Upgrade packages
+sudo apt upgrade -y
+
+# Step 3: Install essential tools 
+sudo apt install -y git curl wget vim
+
+Verify 
+git --version
+curl --version
+vim --version
+
+
+Case Study 2: Web Server Deployment
+Scenario: Deploy basic web server in Linux
+
+You should think need to install and run web server(nginx/apache)
+
+# Step 1: Install nginx
+sudo apt install -y nginx
+
+# Step 2: Status of nginx
+sudo systemctl status nginx
+
+# Step 3: Start the nginx if not Running
+sudo systemctl start nginx
+
+# Step 4: test
+http://<EC2-public-ip>
+

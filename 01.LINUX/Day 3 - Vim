@@ -1,0 +1,63 @@
+Working with Vim Editor
+
+Vim (Vi improved) Its a terminal based text-editor used to 
+. Edit Config files on servers
+. Write scripts
+. Debug logs
+. Work over ssh (no GUI)
+
+Vim has 3 main modes
+
+Mode     purpose
+Normal   Navigation+commands
+Insert   Typing text
+Command  Save, Quit, Actions
+
+Mode flow
+
+Normal -> (i) -> Instert -> (Esc) -> Normal -> (:) -> Command
+
+Basic Commands:
+
+# Open file
+vim <file_name>
+
+# Insert text 
+(i)
+
+# Exit Insert Mode
+(Esc)
+
+# Save and Quit
+:wq
+
+# Quit without saving
+:q!
+
+Task:
+Create a text file with some text content using vim editor and display the content  on terminal 
+
+Navigation key Shortcuts
+
+h   =  Left
+l   =  Right
+j   =  Go Down
+k   =  Go Up
+
+Word Movement
+w   =  Next word
+b   =  Previous word
+
+Line Movement
+0   =  Start of the line
+$   =  end of the line
+
+Jump
+gg  = top of the file
+G   = bottom of the file
+
+Editing 
+dd  =  Delete line
+x   =  Delete character
+
+Copy & Paste
