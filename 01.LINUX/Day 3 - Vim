@@ -1,4 +1,5 @@
 Working with Vim Editor
+-----------------------
 
 Vim (Vi improved) Its a terminal based text-editor used to 
 . Edit Config files on servers
@@ -61,3 +62,21 @@ dd  =  Delete line
 x   =  Delete character
 
 Copy & Paste
+yy  =  Copy line
+p   =  Paste
+
+Search
+/error
+n -> Next match
+N -> Previous match
+
+Case study 1 : Create a config file for a application
+Scenario : Need to create a config file for your application
+
+Case study 2 : Fixing a production bug
+Scenario : Your config has wrong port 
+port = 300(wrong)
+
+Case study 3 : Delete and Replace lines
+Scenario : Remove a debug line
+

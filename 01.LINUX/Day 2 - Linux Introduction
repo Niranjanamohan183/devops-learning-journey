@@ -116,7 +116,7 @@ vim --version
 Case Study 2: Web Server Deployment
 Scenario: Deploy basic web server in Linux
 
-You should think need to install and run web server(nginx/apache)
+You should think need to install and run web server(nginx-Its the commanly used web server/apache)
 
 # Step 1: Install nginx
 sudo apt install -y nginx

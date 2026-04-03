@@ -1,0 +1,78 @@
+
+Filters and Redirections
+------------------------
+
+Filters : Commands that process data (input -> output)
+
+Examples
+grep   =  Find text
+sort   =  Arrange data
+uniq   =  remove duplicates
+
+Redirection
+
+Controls where input/output goes 
+Instead of just printing on screen
+. Save to file
+. Append to file
+. Pass to another file
+
+
+Core Idea 
+Command -> Output  -> (Redirect or filter) -> Result
+
+Part 1 : Redirection
+
+(>)  -> Overwrite output
+Send output to a file (and replace existing content)
+
+   ls -l > test.txt
+
+Use case:
+. Save logs 
+. Store command output
+
+Notes : If the file exists -> It will be overwritten
+
+(>>)  -> Append output
+Adds output to the end of the file (does not overwrite)
+  
+    echo "Hello" >> file.txt
+
+Use case:
+. Appending data
+
+
+(<)  -> Input Redirection
+Takes input from the file instead of keyboard
+
+    cat < file.txt   Same as   cat file.txt
+
+Use case
+. Feeding input scripts
+
+
+(|)  -> Pass output of one command as input to another 
+
+   cat file.txt | grep error
+
+Use case:
+. Log filtering
+
+
+Part 2 : Filters
+
+Cat   -> view file
+  cat file.txt
+
+grep  -> Search text
+   grep "error" file.txt  
+
+sort  -> Sort lines alphabatically
+   sort file.txt
+
+uniq  -> Remove duplicates lines (only consecutive)
+    uniq file.txt
+
+wc   -> Word count
+    wc -l file.txt (counts lines)
