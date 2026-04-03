@@ -1,3 +1,47 @@
 USERS GROUPS - PERMISSION
 -------------------------
+Linux is the multiple user system - Each user has control access
 
+To manage this , Linux has
+. Users
+. Group
+. Premission
+
+USERS?
+A user is an identity that can:
+. Log into the system
+. Own files
+. Run commands
+
+Types of users
+Type            Desc 
+Root user       Super Admin (full access)
+Normal user     Limited access
+System user     Used by services (like nginx)
+
+Commands
+
+# Create user
+sudo adduser <User_name>
+
+# Switch user
+su <user-name>
+
+# Check current user
+whoami
+
+GROUPS?
+A group is a collection of users
+. Manage permissions easily
+. Give access to multiple users
+
+Commands
+
+# Create group 
+sudo groupadd <developers>
+
+# Add user to group
+sudo usermod -aG <developers> <user_name>
+
+# Check groups
+groups <user_name>
