@@ -1,3 +1,161 @@
-SSH - Secure shell protocol its used to connect to an another computer over a network
 
-Windows comparision
+📘 LINUX - ARCHIVING & SSH NOTES
+
+
+
+🔹 1. Archiving vs Compression
+------------------------------
+- Archiving → Combining multiple files/folders into one file
+- Compression → Reducing file size
+
+Formats:
+.tar        → Archive only
+.tar.gz     → Archive + compressed
+.tar.bz2    → Stronger compression
+
+
+🔹 2. Tar Command Basics
+------------------------------
+Syntax:
+tar [options] archive_name files_or_folder
+
+Options:
+-c   → Create archive
+-x   → Extract archive
+-v   → Verbose (show files)
+-f   → File name
+-z   → gzip compression
+-j   → bzip2 compression
+-C   → Extract to directory
+
+
+🔹 3. Create Archive
+------------------------------
+tar -cvf demo.tar demo/
+
+Check contents:
+tar -tvf demo.tar
+
+
+🔹 4. Create Compressed Archive
+------------------------------
+tar -czvf demo.tar.gz demo/
+
+
+🔹 5. Extract Archive
+------------------------------
+tar -xvf demo.tar
+
+
+🔹 6. Extract Compressed Archive
+------------------------------
+tar -xzvf demo.tar.gz
+
+
+🔹 7. Extract to Specific Directory
+------------------------------
+mkdir output
+tar -xzvf demo.tar.gz -C output/
+
+
+🔹 8. Backup Script (Mini Project)
+------------------------------
+Goal: Automatically backup folder
+
+Script:
+#!/bin/bash
+tar -czvf backup_$(date +%F).tar.gz demo/
+
+Note:
+- %F gives current date in YYYY-MM-DD format
+
+Run:
+chmod +x backup.sh
+./backup.sh
+
+
+🔹 9. Cleanup Command
+------------------------------
+rm -r <folder-name>
+
+
+🔹 10. Virtual Machine Setup (Basic Idea)
+------------------------------
+- Install VirtualBox
+- Download Ubuntu ISO
+- Create VM and install OS
+
+
+🔹 11. What is SSH?
+------------------------------
+- SSH (Secure Shell) is used to connect to remote systems securely
+- CLI-based remote access
+
+Windows Equivalent:
+SSH → Remote Desktop (RDP)
+
+
+🔹 12. How SSH Works
+------------------------------
+1. Client requests connection
+2. Server verifies identity
+3. Authentication (password or key)
+4. Encrypted session starts
+
+
+🔹 13. SSH Authentication Methods
+------------------------------
+
+1. Password Based (Basic)
+ssh user@ip
+- Prompts for password
+- Less secure
+
+
+2. Key-Based (Recommended)
+- Uses key pair:
+  • Private key (client)
+  • Public key (server)
+
+
+🔹 14. Generate SSH Key Pair
+------------------------------
+ssh-keygen
+
+Files:
+id_rsa       → Private key
+id_rsa.pub   → Public key
+
+Location:
+~/.ssh/
+
+
+🔹 15. Generate Custom Key
+------------------------------
+ssh-keygen -t rsa -b 4096 -f ~/.ssh/mykey
+
+Explanation:
+-t rsa       → RSA algorithm
+-b 4096      → Key size
+-f           → File location
+
+
+🔹 16. Add Public Key to Server
+------------------------------
+cat ~/.ssh/mykey.pub >> ~/.ssh/authorized_keys
+
+
+🔹 17. Download Private Key
+------------------------------
+cat ~/.ssh/mykey
+
+- Copy output and save as:
+mykey.pem
+
+
+🔹 18. Important Notes
+------------------------------
+- Never share private key
+- Use key-based authentication for security
+- Store keys inside ~/.ssh/
+- Use SSH for secure DevOps operations
