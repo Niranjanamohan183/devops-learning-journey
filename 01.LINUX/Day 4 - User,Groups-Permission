@@ -46,3 +46,56 @@ sudo usermod -aG <developers> <user_name>
 # Check groups
 groups <user_name>
 
+# Command to check list of users in a Group
+grep <group_name> /etc/group
+
+
+PERMISSIONS?
+Every file has 3 permissions
+
+|Symbol    |    Meaning |
+|----------|------------|
+|r         |    read    |
+|w         |    write   |
+|x         |    execute |
+|----------|------------|
+
+d => directory 
+- => file
+
+Permission Structure
+-rwxr-xr--
+
+First represents file/directory
+Next groups as 333
+First 3 (rwx)  - Owner (file creator) permision
+Second 3 (r-x) - Group (assigned group) permission
+Third 3 (r--)  - Others(everyone else) 
+
+# Change Permission
+chmod 
+
+* Numeric method
+ Permissions : read = 4 , write = 2 , execute = 1
+ Numbers       Permissions 
+ --------------------------
+ 7               rwx
+ 6               rw-
+ 5               r-x
+ 4               r--
+
+example : chmod 755 file.txt (-rwxr-xr-x)
+
+* Symbolic method
+ chmod +x file.txt
+
+ Other variations
+ Only Owner : chmod u+x file.sh
+ Only Group : chmod g+x file.sh
+ Only other : chmod o+x file.sh
+ Multiple   : chmod ug+x file.sh
+
+ # Check the ownership
+ ls -l
+
+ 

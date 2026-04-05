@@ -1,0 +1,162 @@
+File System
+-----------
+
+Linux follows a hierarchical structure (tree-like) starting from 
+
+# root 
+ /  = is the most directory everything lives under it 
+ Home directory of root user (admin)
+
+
+
+# Home
+ /home = user personal directory
+ eg:  /home/ubuntu
+
+# bin
+ /bin = essential commands
+ eg: ls, cp, mv
+
+# sbin 
+ /sbin = System admin commands
+ eg: reboot, shutdown
+
+# etc
+ /etc = Configuration files
+ eg: password, ssh, config
+
+# var
+ /var = Variables data(logs, cache)
+ eg: /var/log
+
+# tmp
+ /tmp = Temporary files (auto detected)
+
+# usr
+ /usr = User-installed software and libraries
+
+# dev
+ /dev = Device files (hardware like disk, USB)
+
+# proc
+ /proc = Virtual file systems (system/ process info)
+
+# mnt & media 
+ /mnt & /media = Mount external drives
+
+# boot
+ /boot = The folder that helps your system turn ON and load linux
+
+ 
+
+🔹 Everything is a File
+------------------------------
+In Linux, almost everything is treated as a file — including hardware, processes, and system information.
+
+Examples:
+Type            Example             Meaning
+-------------------------------------------------
+Regular file    file.txt            Normal data file
+Directory       /home               Folder containing files
+Device          /dev/sda            Hard disk / device file
+Process info    /proc/cpuinfo       CPU and system details
+
+
+🔹 Absolute vs Relative Path
+------------------------------
+
+1. Absolute Path
+- Full path starting from root directory (/)
+- Always begins with "/"
+
+Example:
+/home/ubuntu/file.txt
+
+
+2. Relative Path
+- Path based on current working directory
+- Does NOT start with "/"
+
+Examples:
+file.txt        → file in current directory
+../file.txt     → file in parent directory
+
+
+🔹 Important Symbols
+------------------------------
+
+Symbol      Meaning
+------------------------------
+.           Current directory
+..          Parent directory
+~           Home directory
+
+
+🔹 Quick Tips
+------------------------------
+- Use `pwd` to check current directory
+- Use `ls` to list files
+- Use `cd` to navigate between directories
+
+Example:
+cd ..        → move to parent directory
+cd ~         → go to home directory
+cd /         → go to root directory
+
+
+🔹 What are Hidden Files?
+------------------------------
+- Files that start with a dot (.) are hidden in Linux
+- They are not visible using normal `ls` command
+
+Example:
+.gitignore
+.ssh
+
+
+🔹 Why Hidden Files Exist?
+------------------------------
+- To keep system/configuration files separate from normal files
+- Prevent accidental modification or deletion
+- Maintain a clean directory view
+
+
+🔹 Common Hidden Files
+------------------------------
+.gitignore      → Used in Git to ignore files
+.ssh            → Stores SSH keys and configurations
+.bashrc         → Shell configuration file
+.profile        → User environment settings
+
+
+🔹 How to View Hidden Files
+------------------------------
+Use the following command:
+
+ls -a        → Shows all files including hidden ones
+ls -la       → Shows detailed list with permissions
+
+Example:
+ls -a
+
+
+🔹 Real DevOps Use Cases
+------------------------------
+- Store environment configs securely
+- Manage Git repositories (.gitignore)
+- Store SSH keys for server access (.ssh)
+- Keep sensitive configs hidden from normal users
+
+
+🔹 Important Notes
+------------------------------
+- Hidden files are NOT secure by default (just hidden)
+- Permissions still control access
+- Always be careful while editing hidden config files
+
+
+🔹 Quick Commands
+------------------------------
+ls           → List visible files
+ls -a        → List all files (including hidden)
+ls -la       → Detailed view of all files

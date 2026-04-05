@@ -1,0 +1,105 @@
+==============================
+📘 CRON JOBS
+==============================
+
+🔹 What is a Cron Job?
+------------------------------
+- A cron job is used to schedule tasks automatically in Linux
+- Runs commands/scripts at specified time intervals
+
+Windows Equivalent:
+Linux        → Cron Job
+Windows      → Task Scheduler
+
+
+🔹 Cron Components
+------------------------------
+1. cron daemon (crond)
+   - Runs in background
+   - Executes scheduled tasks
+
+2. crontab file
+   - Stores all scheduled jobs
+
+3. command/script
+   - Actual task to execute
+
+
+🔹 Crontab Syntax
+------------------------------
+* * * * * command_to_run
+
+Fields:
+| Minute (0-59)
+| Hour (0-23)
+| Day of Month (1-31)
+| Month (1-12)
+| Day of Week (0-7) (Sun = 0 or 7)
+
+Example:
+* * * * * → every minute
+
+
+🔹 Common Examples
+------------------------------
+* * * * *       → Every minute
+0 * * * *       → Every hour
+0 0 * * *       → Daily at midnight
+0 9 * * 1       → Every Monday at 9 AM
+
+Example command:
+*/5 * * * * echo "Hello Again" >> /home/ubuntu/cron.txt
+
+
+🔹 Basic Commands
+------------------------------
+crontab -e      → Edit cron jobs
+crontab -l      → List cron jobs
+crontab -r      → Remove all cron jobs
+
+
+🔹 Practical Exercises
+------------------------------
+
+1. Run command every minute:
+crontab -e
+* * * * * echo "Hello" >> file.txt
+
+2. Run every 5 minutes:
+*/5 * * * * echo "Hello Again" >> /home/ubuntu/cron.txt
+
+3. Run at 5th minute every hour:
+5 * * * * echo "Hello Again" >> /home/ubuntu/cron.txt
+
+
+🔹 Troubleshooting
+------------------------------
+If cron job is not working:
+
+1. Check cron service:
+sudo systemctl status cron
+
+2. Check logs:
+sudo grep CRON /var/log/syslog
+
+3. Verify jobs:
+crontab -l
+
+
+🔹 Real DevOps Use Cases
+------------------------------
+- Automate backups
+- Run deployment scripts
+- Clean temp files
+- Monitor system health
+- Schedule log rotation
+
+
+🔹 Important Notes
+------------------------------
+- Use full paths in cron jobs (avoid errors)
+- Output can be redirected to log files
+- Cron runs in limited environment (no UI)
+
+Example:
+* * * * * /usr/bin/python3 /home/user/script.py
