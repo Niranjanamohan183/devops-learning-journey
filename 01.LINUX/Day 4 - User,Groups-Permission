@@ -45,3 +45,4 @@ sudo usermod -aG <developers> <user_name>
 
 # Check groups
 groups <user_name>
+
