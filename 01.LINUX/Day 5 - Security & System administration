@@ -1,0 +1,111 @@
+
+📘 LINUX BASICS - SECURITY & SYSTEM ADMINISTRATION
+
+
+🔹 What is Linux Security?
+------------------------------
+- Protecting system, data, and users from unauthorized access
+
+
+🔹 Key Security Pillars
+------------------------------
+1. Authentication
+   → Who are you?
+
+2. Authorization
+   → What can you do?
+
+3. Auditing
+   → What did you do?
+
+
+🔹 User and Group Management
+------------------------------
+- Create user
+- Set password
+- Create group
+- Add user to group
+
+
+🔹 File Permissions & Ownership
+------------------------------
+- Secure application files
+- Restrict access to configuration files
+- Control access using read, write, execute permissions
+
+
+🔹 Sudo (Superuser Access)
+------------------------------
+- `sudo` allows running commands as admin (root)
+
+Example:
+sudo apt update
+
+
+🔹 SSH (Secure Remote Access)
+------------------------------
+- Used to connect to remote servers securely
+
+Example:
+ssh user@server_ip
+
+
+🔹 Firewall (System Protection)
+------------------------------
+- Controls incoming and outgoing network traffic
+- Helps secure system from unauthorized access
+
+
+🔹 Process Management
+------------------------------
+- Process = running program
+
+Commands:
+ps aux        → View all running processes
+top           → Live process monitoring
+kill <pid>    → Stop a process
+
+
+🔹 Package Management
+------------------------------
+- Install and update software packages
+
+Commands:
+sudo apt update
+sudo apt upgrade
+sudo apt install <package-name>
+
+
+🔹 Logs Management
+------------------------------
+- Stores system activity records
+
+Location:
+/var/log
+
+
+🔹 Service Management
+------------------------------
+- Manage system services
+
+Commands:
+sudo systemctl status <service-name>
+sudo systemctl start <service-name>
+sudo systemctl stop <service-name>
+
+
+🔹 Real DevOps Use Cases
+------------------------------
+- Secure servers using SSH + firewall
+- Manage services (nginx, docker, etc.)
+- Monitor logs for debugging
+- Automate package updates
+- Control user access in production systems
+
+
+🔹 Important Notes
+------------------------------
+- Always follow least privilege principle
+- Avoid using root user directly
+- Monitor logs regularly
+- Keep system updated for security patches
