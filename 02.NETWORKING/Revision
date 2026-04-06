@@ -1,0 +1,48 @@
+| Layer | Name         | Function       | Example    |
+| ----- | ------------ | -------------- | ---------- |
+| 7     | Application  | User apps      | Browser    |
+| 6     | Presentation | Encryption     | HTTPS      |
+| 5     | Session      | Connection     | Login      |
+| 4     | Transport    | Delivery       | TCP/UDP    |
+| 3     | Network      | Routing        | IP         |
+| 2     | Data Link    | Local transfer | MAC        |
+| 1     | Physical     | Hardware       | Cable/WiFi |
+
+==============================
+📘 OSI MODEL - MEMORY TRICK
+==============================
+
+🔹 Memory Trick:
+All People Seem To Need Data Processing
+
+
+🔹 Breakdown:
+
+All        → Application Layer (7)
+People     → Presentation Layer (6)
+Seem       → Session Layer (5)
+To         → Transport Layer (4)
+Need       → Network Layer (3)
+Data       → Data Link Layer (2)
+Processing → Physical Layer (1)
+
+
+🔹 OSI Layers (Top → Bottom)
+
+7. Application   → User interaction (Browser, Apps)
+6. Presentation  → Encryption, Formatting (HTTPS)
+5. Session       → Connection start/end (Login)
+4. Transport     → Data delivery (TCP/UDP)
+3. Network       → Routing (IP Address)
+2. Data Link     → Local delivery (MAC Address)
+1. Physical      → Hardware (Cable, WiFi)
+
+
+
+🔥 PRO TIP (INTERVIEW)
+Router = IP
+Switch = MAC
+TCP = Reliable
+UDP = Fast
+Firewall = Security
+OSI = Debugging model

@@ -6,7 +6,7 @@ Main Components of OS:
   Controls CPU, Memory, Devices
 2. System Calls
   Interface between OS
-3. File System
+3. File Systemws
   Organize Data (files/folders)
 4. Device Drivers
   Communicate with hardware

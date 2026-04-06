@@ -1,0 +1,248 @@
+==============================
+📘 LINUX - SCP & NETWORKING NOTES
+==============================
+
+
+🔹 1. What is SCP?
+------------------------------
+- SCP (Secure Copy) is a command-line tool to transfer files securely
+- Works over SSH (encrypted)
+
+Transfers:
+- Local → Remote
+- Remote → Local
+- Remote → Remote
+
+Benefits:
+- Secure (encrypted)
+- Uses SSH key pair
+
+🔹 SCP Flow
+
+Local Machine
+     ↓
+ (SSH Encrypted)
+     ↓
+Remote Server (EC2)
+
+
+🔹 2. SCP Syntax
+------------------------------
+scp [options] source destination
+
+
+🔹 3. Upload File (Local → EC2)
+------------------------------
+scp -i <key-name> <file-name> ubuntu@<public-ip>:/home/ubuntu/
+
+
+🔹 4. Download File (EC2 → Local)
+------------------------------
+scp -i <key-name> ubuntu@<ec2-ip>:/home/ubuntu/<file-name> .
+
+
+🔹 5. GUI Tools
+------------------------------
+WinSCP:
+- Windows only
+- Drag & drop
+- Built-in editor
+
+FileZilla:
+- Cross-platform
+- Free & open source
+- Resume large transfers
+
+
+🔹 6. What is Computer Networking?
+------------------------------
+- Connecting multiple devices to:
+  • Share data
+  • Communicate
+  • Access resources (internet, servers)
+
+
+🔹 7. Types of Networks
+------------------------------
+
+LAN (Local Area Network)
+- Small area (home, office)
+- Fast and reliable
+
+MAN (Metropolitan Area Network)
+- Covers a city
+- Connects multiple LANs
+
+WAN (Wide Area Network)
+- Large area (country/global)
+- Example: Internet
+| Type | Full Form                 | Area   | Example   |
+| ---- | ------------------------- | ------ | --------- |
+| LAN  | Local Area Network        | Small  | Home WiFi |
+| MAN  | Metropolitan Area Network | City   | ISP       |
+| WAN  | Wide Area Network         | Global | Internet  |
+
+
+🔹 8. Core Networking Components
+------------------------------
+
+Hardware:
+- Router → connects networks (internet)
+- Switch → connects devices in LAN
+- Modem → connects to ISP
+- Firewall → security layer
+
+Software/Protocols:
+- HTTP, TCP, DNS
+| Component | Function         | Uses        |
+| --------- | ---------------- | ----------- |
+| Router    | Connect networks | IP          |
+| Switch    | Connect devices  | MAC         |
+| Modem     | Connect ISP      | Internet    |
+| Firewall  | Security         | Block/Allow |
+
+
+🔹 9. How Networking Works
+------------------------------
+Client-Server Model:
+1. Client sends request
+2. Server processes request
+3. Server sends response
+4. Client displays result
+
+
+🔹 10. Cloud Networking
+------------------------------
+- Networking in cloud (AWS, Azure, GCP)
+- No physical hardware
+
+Features:
+- Virtual
+- Scalable
+- Configurable
+
+
+🔹 11. Traditional vs Cloud
+------------------------------
+Traditional:
+- Physical setup
+- High cost
+- Manual scaling
+
+Cloud:
+- Virtual setup
+- Pay-as-you-go
+- Auto scaling
+
+
+🔹 12. Microservices Networking
+------------------------------
+- App split into multiple services
+- Services communicate via network
+
+Components:
+- API Gateway
+- Services (user, order, payment)
+- Database
+- Load balancer
+
+
+🔹 13. Key Networking Terms
+------------------------------
+
+LAN:
+- Small network (home/office)
+
+Switch:
+- Connects devices in LAN
+- Uses MAC address
+
+Router:
+- Connects networks
+- Uses IP address
+
+Subnet:
+- Smaller network inside larger network
+
+Firewall:
+- Controls traffic (allow/block)
+
+Gateway:
+- Entry/exit point of network
+
+
+🔹 14. Network Flow (How it Works)
+------------------------------
+1. Laptop sends request
+2. Switch forwards inside LAN
+3. Router sends to internet
+4. Firewall checks traffic
+5. Server responds
+6. Data returns to client
+
+
+🔹 15. OSI Model (7 Layers)
+------------------------------
+OSI = Open System Interconnection
+
+Top → Bottom:
+
+7. Application
+- User interaction (browser, apps)
+
+6. Presentation
+- Formatting, encryption
+- Example: HTTPS
+
+5. Session
+- Start/stop connection
+- Example: login session
+
+4. Transport
+- Data delivery
+- TCP (reliable), UDP (fast)
+
+3. Network
+- Routing using IP
+- Example: India → USA
+
+2. Data Link
+- Local delivery
+- Uses MAC address
+
+1. Physical
+- Hardware layer
+- Cables, WiFi
+| Layer | Name         | Function       | Example    |
+| ----- | ------------ | -------------- | ---------- |
+| 7     | Application  | User apps      | Browser    |
+| 6     | Presentation | Encryption     | HTTPS      |
+| 5     | Session      | Connection     | Login      |
+| 4     | Transport    | Delivery       | TCP/UDP    |
+| 3     | Network      | Routing        | IP         |
+| 2     | Data Link    | Local transfer | MAC        |
+| 1     | Physical     | Hardware       | Cable/WiFi |
+
+
+🔹 16. OSI Memory Trick
+------------------------------
+All People Seem To Need Data Processing
+
+A → Application
+P → Presentation
+S → Session
+T → Transport
+N → Network
+D → Data Link
+P → Physical
+
+
+🔹 17. Important Notes
+------------------------------
+- SCP uses SSH → secure transfer
+- Firewall protects network
+- Router connects internet
+- OSI model helps debugging network issues
+- Cloud networking is key for DevOps
+
+
