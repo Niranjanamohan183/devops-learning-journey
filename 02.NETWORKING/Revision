@@ -46,3 +46,17 @@ TCP = Reliable
 UDP = Fast
 Firewall = Security
 OSI = Debugging model
+
+🔹 Commands
+
+| Command          | Purpose            |
+| ---------------- | ------------------ |
+| ip a             | Show IP            |
+| curl ifconfig.me | Public IP          |
+| ping             | Check connectivity |
+| traceroute       | Path tracking      |
+| nslookup         | DNS lookup         |
+| dig              | Detailed DNS       |
+| route -n         | Routing table      |
+
+

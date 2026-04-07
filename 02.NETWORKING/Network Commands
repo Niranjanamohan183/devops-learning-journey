@@ -1,0 +1,171 @@
+==============================
+📘 NETWORKING COMMANDS NOTES
+==============================
+
+
+🔹 1. IP Address
+------------------------------
+- Unique identifier of a device in a network
+
+Types:
+- Private IP → inside network
+- Public IP → internet facing
+
+Versions:
+- IPv4 → 192.168.1.1
+- IPv6 → 2001::db8::1
+
+
+🔹 2. Port
+------------------------------
+- Identifies service running on a machine
+
+Common Ports:
+22   → SSH
+80   → HTTP
+443  → HTTPS
+3306 → MySQL
+
+
+🔹 3. Check IP Address
+------------------------------
+ip a
+
+- Shows all network interfaces
+- lo → loopback (127.0.0.1)
+- ens5 → main network interface
+
+
+🔹 4. Check Public IP
+------------------------------
+curl ifconfig.me
+
+
+🔹 5. Run Web Server
+------------------------------
+python3 -m http.server 8080
+
+- Runs local server
+- Uses port 8080
+
+
+🔹 6. Traceroute
+------------------------------
+- Shows path (hops) from source → destination
+
+Install:
+sudo apt install traceroute
+
+Run:
+traceroute google.com
+
+Concept:
+- Hop = router in path
+- Uses TTL (Time To Live)
+
+Use Cases:
+- Find network delay
+- Identify routing issues
+
+
+🔹 7. Ping
+------------------------------
+- Checks if host is reachable
+- Measures latency
+
+Basic:
+ping google.com
+
+Limited packets:
+ping -c 4 google.com
+
+Options:
+-i 2   → interval
+-s 1000 → packet size
+🔹 Ping Flow
+Your System
+     ↓
+ICMP Request
+     ↓
+Target System
+     ↓
+ICMP Reply
+     ↓
+Response Time (RTT)
+
+Protocol:
+- Uses ICMP
+
+## 🔹 Ping Output
+
+![Ping Output](images/ping-output.png)
+
+🔹 Ping vs Traceroute
+
+| Feature  | Ping         | Traceroute |
+| -------- | ------------ | ---------- |
+| Purpose  | Reachability | Full path  |
+| Protocol | ICMP         | UDP/ICMP   |
+| Output   | Simple       | Detailed   |
+| Latency  | Overall      | Per hop    |
+
+
+
+🔹 8. DNS (Domain Name System)
+------------------------------
+- Converts domain → IP
+
+Example:
+google.com → 142.250.x.x
+
+Commands:
+nslookup google.com
+dig google.com
+
+
+🔹 9. DNS Records
+------------------------------
+A      → Domain → IPv4
+AAAA   → Domain → IPv6
+MX     → Mail server
+TXT    → Verification
+CNAME  → Alias
+
+
+🔹 10. DNS Flow
+------------------------------
+Browser
+   ↓
+Local Cache
+   ↓
+DNS Resolver
+   ↓
+Root Server
+   ↓
+TLD Server (.com)
+   ↓
+Authoritative Server
+   ↓
+IP Address Returned
+
+🔹 11. Routing
+------------------------------
+- Decides where network traffic goes
+
+Command:
+route -n
+
+Key Terms:
+0.0.0.0 → default route
+Gateway → router IP
+Iface   → network interface
+
+
+🔹 12. Important Commands Summary
+------------------------------
+ip a
+ping google.com
+traceroute google.com
+nslookup google.com
+dig google.com
+route -n
