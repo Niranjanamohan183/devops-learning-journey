@@ -96,10 +96,6 @@ Response Time (RTT)
 Protocol:
 - Uses ICMP
 
-## 🔹 Ping Output
-
-![Ping Output](images/ping-output.png)
-
 🔹 Ping vs Traceroute
 
 | Feature  | Ping         | Traceroute |
