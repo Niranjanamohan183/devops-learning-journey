@@ -5,184 +5,184 @@
 
 🔹 1. SSL/TLS (Secure Communication)
 ------------------------------
-- Secure communication between client & server
+ - Secure communication between client & server
+ 
+ SSL → Old (deprecated)
+ TLS → Modern (used now)
 
-SSL → Old (deprecated)
-TLS → Modern (used now)
+ Used in:
+ - HTTPS
+ - APIs
+ - Web apps
 
-Used in:
-- HTTPS
-- APIs
-- Web apps
+ Example:
+ http://site.com  → Not secure
+ https://site.com → Secure
 
-Example:
-http://site.com  → Not secure
-https://site.com → Secure
+ TLS Flow:
+ Client → Hello
+ Server → Certificate
+ Client → Verify
+ → Encrypted communication starts
 
-TLS Flow:
-Client → Hello
-Server → Certificate
-Client → Verify
-→ Encrypted communication starts
-
-Features:
-- Encryption → Data hidden
-- Integrity → No tampering
-- Authentication → Verify server
+ Features:
+ - Encryption → Data hidden
+ - Integrity → No tampering
+ - Authentication → Verify server
 
 
 🔹 2. IPSec (Network Security)
 ------------------------------
-- Secures communication at network level
+ - Secures communication at network level
 
-Used in:
-- VPN
-- Site-to-site connection
-- Cloud networking
+ Used in:
+ - VPN
+ - Site-to-site connection
+ - Cloud networking
 
-Modes:
-Transport Mode → Encrypts data only
-Tunnel Mode → Encrypts entire packet
+ Modes:
+ Transport Mode → Encrypts data only
+ Tunnel Mode → Encrypts entire packet
 
-Difference:
-TLS → Secure message
-IPSec → Secure network
+ Difference:
+ TLS → Secure message
+ IPSec → Secure network
 
 
 🔹 3. DevSecOps
 ------------------------------
-DevSecOps = Dev + Security + Ops
+ DevSecOps = Dev + Security + Ops
 
-Goal:
-- Fast delivery
-- Secure systems
-- Automation
+ Goal:
+ - Fast delivery
+ - Secure systems
+ - Automation
 
-Pipeline:
-Code → Build → Test → Scan → Deploy → Monitor
+ Pipeline:
+ Code → Build → Test → Scan → Deploy → Monitor
 
 
 🔹 4. DevSecOps Tools
 ------------------------------
 
-SAST (Static Testing)
-- Scan code before execution
-Tools:
-- SonarQube
-- Checkmarx
+ SAST (Static Testing)
+ - Scan code before execution
+ Tools:
+ - SonarQube
+ - Checkmarx
 
-DAST (Dynamic Testing)
-- Test running apps
-Tools:
-- Burp Suite
+ DAST (Dynamic Testing)
+ - Test running apps
+ Tools:
+ - Burp Suite
 
-SCA (Dependency Scan)
-- Check libraries
-Tools:
-- Snyk
-- Dependabot
+ SCA (Dependency Scan)
+ - Check libraries
+ Tools:
+ - Snyk
+ - Dependabot
 
-Container Security
-- Scan Docker images
-Tools:
-- Trivy
-- Clair
+ Container Security
+ - Scan Docker images
+ Tools:
+ - Trivy
+ - Clair
 
-Secrets Management
-- Store credentials securely
-Tools:
-- HashiCorp Vault
-- AWS Secrets Manager
+ Secrets Management
+ - Store credentials securely
+ Tools:
+ - HashiCorp Vault
+ - AWS Secrets Manager
 
 
 🔹 5. Shell Scripting
 ------------------------------
-- Automating Linux commands
+ - Automating Linux commands
 
-Shell:
-- Program that executes commands
+ Shell:
+ - Program that executes commands
 
-Types:
-- Bash (most used)
-- sh
-- zsh
+ Types:
+ - Bash (most used)
+ - sh
+ - zsh
 
 
 🔹 6. Basic Script
 ------------------------------
-#!/bin/bash
-echo "Hello World"
+ #!/bin/bash
+ echo "Hello World"
 
-Commands:
-chmod +x script.sh
+ Commands:
+ chmod +x script.sh
 ./script.sh
 
 
 🔹 7. Shell Types
 ------------------------------
-sh → Basic shell
-bash → Advanced shell
+ sh → Basic shell
+ bash → Advanced shell
 
-Bash Features:
-- Variables
-- Loops
-- Arrays
-- Auto-completion
+ Bash Features:
+ - Variables
+ - Loops
+ - Arrays
+ - Auto-completion
 
 
 🔹 8. Variables
 ------------------------------
-- Store data
+ - Store data
 
-Syntax:
-name="value"
+ Syntax:
+ name="value"
 
-Example:
-name="Niranjana"
-echo $name
+ Example:
+ name="Niranjana"
+ echo $name
 
 
 🔹 9. Types of Variables
 ------------------------------
 
-1. User-defined
-- Created by user
-- Local scope
+ 1. User-defined
+ - Created by user
+ - Local scope
 
-2. System variables
-- Predefined by OS
-Examples:
-$HOME, $USER, $PWD, $SHELL
+ 2. System variables
+ - Predefined by OS
+ Examples:
+ $HOME, $USER, $PWD, $SHELL
 
-3. Environment variables
-- Global scope
-- Accessible by child processes
+ 3. Environment variables
+ - Global scope
+ - Accessible by child processes
 
-Set:
-export MY_VAR="Hello"
+ Set:
+ export MY_VAR="Hello"
 
-Check:
-env
+ Check:
+ env
 
 
 🔹 10. Variable Behavior
 ------------------------------
-User Variable:
-- Local
-- NOT inherited by child process
+ User Variable:
+ - Local
+ - NOT inherited by child process
 
-Environment Variable:
-- Global
-- Inherited by child process
+ Environment Variable:
+ - Global
+ - Inherited by child process
 
 
 🔹 11. Make Variable Persistent
 ------------------------------
-Temporary:
-export MY_VAR="Hello"
+ Temporary:
+ export MY_VAR="Hello"
 
-Permanent:
-Add in ~/.bashrc
+ Permanent:
+ Add in ~/.bashrc
 
-System-wide:
-sudo nano /etc/environment
+ System-wide:
+ sudo nano /etc/environment
