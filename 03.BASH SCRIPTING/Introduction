@@ -60,45 +60,45 @@ Scenario :
  DevSecOps = Dev + Security + Ops
 
  Goal:
- - Fast delivery
- - Secure systems
- - Automation
+ - BUild Fast
+ - Stay Secure 
+ - Automate Everything
 
- Pipeline:
- Code → Build → Test → Scan → Deploy → Monitor
+ Pipeline: (High-Leve)
+  Code → Build → Test → Scan → Deploy → Monitor
 
 
 🔹 4. DevSecOps Tools
 ------------------------------
 
- SAST (Static Testing)
- - Scan code before execution
- Tools:
- - SonarQube
- - Checkmarx
+ # SAST (Static Application Sevutiry Testing)
+    - Scan code for vulnerabilities befor running
+    Tools:
+      - SonarQube
+      - Checkmarx
 
- DAST (Dynamic Testing)
- - Test running apps
- Tools:
- - Burp Suite
+ # DAST (Dynamic Testing)
+   - Test running applications for vulnerabilities
+   Tools:
+     - Burp Suite
 
- SCA (Dependency Scan)
- - Check libraries
- Tools:
- - Snyk
- - Dependabot
+ # SCA (Dependency Scan libraries)
+   - Check libraries
+   Tools:
+     - Snyk
+     - Dependabot
 
- Container Security
- - Scan Docker images
- Tools:
- - Trivy
- - Clair
+ # Container Security
+    - Scan Docker images
+    Tools:
+    - Trivy
+    - Clair
 
- Secrets Management
- - Store credentials securely
- Tools:
- - HashiCorp Vault
- - AWS Secrets Manager
+ # Secrets Management
+    - Store credentials securely
+    Tools:
+     - HashiCorp Vault
+     - AWS Secrets Manager
 
 
 🔹 5. Shell Scripting
