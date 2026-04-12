@@ -7,8 +7,8 @@
 ------------------------------
  - Secure communication between client & server
  
- SSL → Old (deprecated)
- TLS → Modern (used now)
+ SSL → Old (deprecated) : Secure Socket Layer
+ TLS → Modern (used now) : Transport Layer security
 
  Used in:
  - HTTPS
@@ -22,18 +22,18 @@
  TLS Flow:
  Client → Hello
  Server → Certificate
- Client → Verify
- → Encrypted communication starts
+ Client → Verify → Encrypted communication starts
 
  Features:
- - Encryption → Data hidden
- - Integrity → No tampering
- - Authentication → Verify server
+ - Encryption → Data hidden (Unreadable)
+ - Integrity → No tampering (Not modified)
+ - Authentication → Verify server (Identity)
 
 
 🔹 2. IPSec (Network Security)
 ------------------------------
- - Secures communication at network level
+ - Secures communication between networks or system
+ - A protocol suite that secures IP-Level communication
 
  Used in:
  - VPN
@@ -41,13 +41,19 @@
  - Cloud networking
 
  Modes:
- Transport Mode → Encrypts data only
- Tunnel Mode → Encrypts entire packet
+ Transport Mode → Encrypts data only (Host to Host)
+ Tunnel Mode → Encrypts entire packet (Its used in VPN)
 
  Difference:
- TLS → Secure message
- IPSec → Secure network
+ TLS → Secure message - Looking a message inside an envelope
+   
+ IPSec → Secure network - Securing the entire road between cities
 
+Scenario :
+  1) Secure Website : TSL-https
+  2) Connect Office to AWS VPC : IPSec - VPN
+  3) API Security : TSL - measures encrypted data
+  4) Hyprid Cloud : IPSec - Cloud 
 
 🔹 3. DevSecOps
 ------------------------------
