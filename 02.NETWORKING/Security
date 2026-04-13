@@ -1,0 +1,366 @@
+📘 NETWORKING & SECURITY NOTES 
+================================
+ipconfig/ifconfig
+
+View and manage network configuration
+
+ipconfig
+
+• Used in windows systems
+• Shows IP address, DNS, gateway
+
+ifconfig
+
+• Used in Linux (older tool)
+• Shows network interfaces and ips
+
+Note: On modern linux (like ubuntu EC2)
+
+ip a
+ifconfig
+Arp (address resolution protocol)
+
+Map an IP address -> MAC address
+
+Why arp is Needed?
+
+In a network:
+• Devices communicate using IP addresses (logical)
+• But actual data transfer happens using MAC addresses (physical)
+
+How arp works?
+
+• Your system wants to send data to 192.168.1.1
+• It checks arp cache
+• If not found -> sends ARP Request (broadcast)
+• Target device replies with ARP reply (unicast)
+• Mapping stored in ARP table
+
+Hands-on
+
+View ARP table
+
+arp -a
+
+Modern alternative
+
+ip neigh
+Real World Scenarios
+
+Scenario 1: First Communication in Network
+o Device doesn’t know MAC
+o Uses ARP to find it
+
+Scenario 2: Duplicate IP issue
+o Same IP mapped to multiple MACs (network conflict)
+
+netstat
+
+Network statistics: Active connections, listening ports, routing tables and network stats
+
+Using netstat, we want to:
+o Identify, which ports are open
+o Find which process is using a port
+o Check incoming/outgoing connections
+
+Hands-on
+Show All listening Ports
+netstat -tuln
+
+tcp -> protocol
+0.0.0.0:22 -> listening on all Ips, port 22
+LISTEN -> waiting for connections
+
+Flags Breakdown
+
+Flag Meaning
+-t TCP
+-u UDP
+-l Listening
+-n Numeric (no DNS Lookup)
+
+Show Process using Port
+Sudo netstat -tulnp
+iptables
+
+A linux firewall tool used to control network traffic (Allow/Block/filter)
+
+Core Concepts
+Tables
+
+Table Purpose
+Filter Default -> allow/block traffic
+Nat Network address translation
+mangle Modify packets
+
+Chains
+
+Chain Meaning
+INPUT Incoming traffic
+OUTPUT Outgoing traffic
+FORWARD Passing through server
+
+Actions (Targets)
+
+Action Meaning
+ACCEPT Allow
+DROP Block silently
+REJECT Block with response
+
+Difference between iptables and AWS Security Groups
+
+Both controls traffic but they work at different layer of your system
+
+AWS Security Group
+
+Virtual firewall at cloud network level. Works outside your EC2 instance at AWS infrastructure level
+
+iptables
+
+Firewall inside your EC2 instance (OS level). Inside linux operating system. Controls packets at kernel level
+
+Demo: Observe when Security group allows but iptables blocks
+
+o Run a web server on port 8080
+o Allow port 8080 in Security Groups
+o Block port 8080 using iptables
+o Test access from browser
+
+Step 1: Start Web server
+python3 -m http.server 8080
+Step 2: Verify inside EC2 (localhost)
+curl localhost:8080
+
+Verify (browser):
+
+http://<EC2-public-ip>:8080
+
+Note: Ensure security group is allowing the traffic on port 8080
+
+Step 3: Apply iptables Block
+sudo iptables -A INPUT -p tcp --dport 8080 -j DROP
+
+-A INPUT : apply to incoming traffic
+-p tcp: protocol
+--dport 8080: target port
+-j DROP: silently block
+
+Step 4: Test Again
+
+From Browser
+
+http://<EC2-Public-IP>:8080
+
+o Page will not load
+o Timeout/connection refused
+
+Inside EC2 (From Localhost)
+
+curl localhost:8080
+
+Connection refused
+
+Root cause: iptables is blocking all the traffic even from localhost
+
+Step 5: If want to allow traffic inside localhost
+sudo iptables -I INPUT 1 -i lo -j ACCEPT
+Step 6: Revert the changes
+sudo iptables -D INPUT -p tcp --dport 8080 -j DROP
+Common Network Security Attacks (e.g., DDoS, Man-in-the-Middle)
+DDOS (Distributed Denial of Service)
+
+Flood a server with massive traffic -> make it unavailable
+
+How it works
+
+o Thousands of compromised machines (botnet)
+o Send requests simultaneously
+o Server resources exhausted
+
+Detection
+
+o Sudden spike in traffic
+o High CPU/Memory usage
+o Many requests from different Ips
+
+Prevention
+
+o Load balancers
+o AWS Shield
+o Use Cloudflare (CDN + Security layer)
+o Rate limiting (Restricts number of requests per user/IP in a time window)
+
+MITM (Man-in-the-Middle)
+
+Attacks secretly intercept communication
+
+Example:
+User -> Attacker -> Server
+
+Detection
+
+o Unexpected certificate warnings
+o Suspicious network behavior
+
+Prevention
+
+o HTTPS (SSL/TLS)
+o VPN
+o Secure Wi-fi
+
+Malware/Ransomware
+
+Malicious software infects system
+
+Effect
+
+o Data theft
+o File encryption
+
+Prevention
+
+o Antivirus
+o Regular updates
+o Backup
+
+Phishing
+
+Fake emails/websites to steal credentials
+
+Detection
+
+o Suspicious link
+o Fake domain
+
+Prevention
+
+o Use awareness
+o Email filtering
+
+Access Control Lists (ACLs) and Firewall Rules
+
+An Access Control list (ACL) is
+A set of rules that allow or deny traffic based on IP, protocol, port
+
+Where ACLs are used
+
+o Network devices (routers, switches)
+o Cloud (AWS Network ACLs)
+o Operating System (file ACLs also exist)
+
+Example Rule:
+
+ALLOW 192.168.1.0/24
+DENY 0.0.0.0/0
+
+Note:
+o Allow internal network
+o Deny everything else
+
+How ACL works
+
+o Rules are checked from top -> bottom
+o First match is applied
+o If no match -> default action (allow/deny)
+
+What are Firewall Rules?
+
+Firewall rules are instructions that controls incoming and outgoing traffic
+
+Example:
+
+sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+ACL vs Firewall Rules
+
+Feature ACL Firewall
+Level Network OS/Cloud
+Type Stateless Stateful
+Rule Order Strict order Can be flexible
+Complexity Basic Advanced
+
+Hands-on-Demo
+
+Allow in one layer, block in another and observe real behaviour on EC2
+
+How traffic is controlled by multiple layers
+
+o Security Group (Stateful, instance-level)
+o NACL (Stateless, subnet-level)
+
+Two Scenarios
+
+o SG (allow), NACL (blocks)
+o SG (blocks), NACL (allows)
+
+Step 1: Launch an EC2 instance
+Step 2: Connect to EC2 instance
+Step 3: Start Web server and test the access
+Step 4: Identify Subnet NACL
+Step 5: Scenario 1: SG(Allows), NACL(Blocks)
+
+Goal: Security group allows traffic, but NACL blocks it
+
+Scenario 2: SG(Blocks), NACL(Allows)
+NACL (Stateless)
+
+o Works at subnet level
+o Need rules for
+▪ Inbound
+▪ Outbound
+
+Security Group (Stateful)
+
+o Works at instance level
+o Automatically allows return traffic
+
+Scenario 3: Inbound is allowed but response still fails
+
+Break outbound traffic in NACL
+
+Networking Interactive Quiz
+
+Q 1: DNS Converts
+A. IP -> MAC
+B. Domain -> IP : Correct
+C. Port -> IP
+D. MAC -> IP
+
+Q2: ARP resolves
+A. IP -> MAC: Correct
+B. Domain -> IP
+C. Port -> IP
+D. MAC -> IP
+
+Q3: Command
+netstat -tulnp
+
+What extra info does -p give ?
+
+A. Port number
+B. Protocol
+C. Process name : Correct
+D. Packet count
+
+Q4: Traffic flow order
+
+A. SG -> NACL -> EC2
+B. NACL -> SG -> EC2: Correct
+C. EC2 -> SG->NACL
+D. SG->EC2->NACL
+
+Q5: Security group allows 8080, iptables blocks it. Result?
+
+A. works
+B. Partial
+C. Fails : Correct
+D. Slow
+
+Q6: iptables rule
+-A INPUT -p tcp –dport 80 -j DROP
+
+What happens?
+
+A. Port 80 allowed
+B. Port 80 blocked: Correct
+C. Port 80 redirected
+D. No effect
