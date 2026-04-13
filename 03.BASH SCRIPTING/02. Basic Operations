@@ -1,0 +1,152 @@
+==============================
+📘 BASH SCRIPTING NOTES
+==============================
+
+
+🔹 1. Operators in Shell
+------------------------------
+Types:
+- Arithmetic
+- Relational
+- Logical
+- String
+- File Test
+
+
+🔹 2. Arithmetic Operators
+------------------------------
+a=10
+b=5
+
+echo $((a + b))
+echo $((a - b))
+echo $((a * b))
+echo $((a / b))
+
+
+🔹 3. Relational Operators
+------------------------------
+-eq → equal
+-ne → not equal
+-gt → greater than
+-lt → less than
+-ge → greater or equal
+-le → less or equal
+
+Example:
+if [ $a -gt $b ]
+then
+ echo "a is greater"
+fi
+
+
+🔹 4. Logical Operators
+------------------------------
+&& → AND (both true)
+|| → OR (any true)
+!  → NOT
+
+Example:
+if [ $a -gt 5 ] && [ $b -lt 10 ]
+then
+ echo "both true"
+fi
+
+
+🔹 5. String Operators
+------------------------------
+=   → equal
+!=  → not equal
+-z  → empty string
+-n  → not empty
+
+Example:
+name="Jatin"
+if [ "$name" = "Jatin" ]
+then
+ echo "Match"
+fi
+
+
+🔹 6. File Test Operators
+------------------------------
+-f → file exists
+-d → directory exists
+-r → readable
+-w → writable
+-x → executable
+
+Example:
+if [ -f file.txt ]
+then
+ echo "File exists"
+fi
+
+
+🔹 7. Disk Space Alert Script
+------------------------------
+#!/bin/bash
+
+THRESHOLD=80
+usage=$(df / | awk 'NR==2 {print $5}' | sed 's/%//')
+
+echo "Current usage: $usage%"
+
+if [ $usage -gt $THRESHOLD ]
+then
+ echo "ALERT: Disk usage high"
+else
+ echo "Disk is normal"
+fi
+
+
+🔹 8. File Backup Script
+------------------------------
+#!/bin/bash
+
+FILE="file.txt"
+
+if [ -f "$FILE" ]
+then
+ cp $FILE backup.txt && echo "Backup successful"
+else
+ echo "File not found"
+fi
+
+
+🔹 9. Port Check Script
+------------------------------
+#!/bin/bash
+
+PORT=8080
+
+if ss -tuln | grep -q ":$PORT"
+then
+ echo "Port already in use"
+else
+ echo "Starting server"
+ python3 -m http.server $PORT
+fi
+
+
+🔹 10. User Input
+------------------------------
+read name
+echo "Hello $name"
+
+With prompt:
+read -p "Enter age: " age
+
+Hidden input:
+read -s -p "Enter password: " pass
+
+Default value:
+city=${city:-"Delhi"}
+
+
+🔹 11. Important Commands
+------------------------------
+df -h        → disk usage
+ss -tuln     → open ports
+awk          → text processing
+sed          → string replace
