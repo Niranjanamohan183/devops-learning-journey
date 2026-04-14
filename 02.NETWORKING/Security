@@ -1,6 +1,7 @@
 📘 NETWORKING & SECURITY NOTES 
 ================================
 ipconfig/ifconfig
+-----------------
 
 View and manage network configuration
 
@@ -14,112 +15,100 @@ ifconfig
 • Used in Linux (older tool)
 • Shows network interfaces and ips
 
-Note: On modern linux (like ubuntu EC2)
+# Note: Command On modern linux (like ubuntu EC2)
+    ip a
+    ifconfig // Install before using
+    
 
-ip a
-ifconfig
 Arp (address resolution protocol)
+--------------------------------- 
 
 Map an IP address -> MAC address
 
-Why arp is Needed?
+ Why arp is Needed?
+ In a network:
+   • Devices communicate using IP addresses (logical)
+   • But actual data transfer happens using MAC addresses (physical)
 
-In a network:
-• Devices communicate using IP addresses (logical)
-• But actual data transfer happens using MAC addresses (physical)
+ How arp works?
+  • Your system wants to send data to 192.168.1.1
+  • It checks arp cache
+  • If not found -> sends ARP Request (broadcast)
+  • Target device replies with ARP reply (unicast)
+  • Mapping stored in ARP table
 
-How arp works?
+  # Hands-on commands
+    View ARP table: arp -a
+    Modern alternative: ip neigh
 
-• Your system wants to send data to 192.168.1.1
-• It checks arp cache
-• If not found -> sends ARP Request (broadcast)
-• Target device replies with ARP reply (unicast)
-• Mapping stored in ARP table
-
-Hands-on
-
-View ARP table
-
-arp -a
-
-Modern alternative
-
-ip neigh
 Real World Scenarios
+--------------------
 
-Scenario 1: First Communication in Network
-o Device doesn’t know MAC
-o Uses ARP to find it
+> Scenario 1: First Communication in Network
+  * Device doesn’t know MAC
+  * Uses ARP to find it
 
-Scenario 2: Duplicate IP issue
-o Same IP mapped to multiple MACs (network conflict)
+> Scenario 2: Duplicate IP issue
+  * Same IP mapped to multiple MACs (network conflict)
 
 netstat
-
-Network statistics: Active connections, listening ports, routing tables and network stats
+-------
+ Network statistics: Active connections, listening ports, routing tables and network stats
 
 Using netstat, we want to:
-o Identify, which ports are open
-o Find which process is using a port
-o Check incoming/outgoing connections
+* Identify, which ports are open
+* Find which process is using a port
+* Check incoming/outgoing connections
 
-Hands-on
-Show All listening Ports
-netstat -tuln
+# Commands Hands-on
+ Show All listening Ports : netstat -tuln
 
-tcp -> protocol
-0.0.0.0:22 -> listening on all Ips, port 22
-LISTEN -> waiting for connections
+ tcp -> protocol
+ 0.0.0.0:22 -> listening on all Ips, port 22
+ LISTEN -> waiting for connections
 
-Flags Breakdown
+ Flags Breakdown
 
-Flag Meaning
--t TCP
--u UDP
--l Listening
--n Numeric (no DNS Lookup)
+ Flag Meaning
+ -t TCP
+ -u UDP
+ -l Listening
+ -n Numeric (no DNS Lookup)
 
-Show Process using Port
-Sudo netstat -tulnp
-iptables
-
-A linux firewall tool used to control network traffic (Allow/Block/filter)
-
-Core Concepts
-Tables
-
-Table Purpose
-Filter Default -> allow/block traffic
-Nat Network address translation
-mangle Modify packets
-
-Chains
-
-Chain Meaning
-INPUT Incoming traffic
-OUTPUT Outgoing traffic
-FORWARD Passing through server
-
-Actions (Targets)
-
-Action Meaning
-ACCEPT Allow
-DROP Block silently
-REJECT Block with response
-
-Difference between iptables and AWS Security Groups
-
-Both controls traffic but they work at different layer of your system
-
-AWS Security Group
-
-Virtual firewall at cloud network level. Works outside your EC2 instance at AWS infrastructure level
+ Show Process using Port: Sudo netstat -tulnp
 
 iptables
+--------
+  A linux firewall tool used to control network traffic (Allow/Block/filter)
 
-Firewall inside your EC2 instance (OS level). Inside linux operating system. Controls packets at kernel level
+ Core Concepts
+ > Tables
+  | Table  | Purpose                          |
+  |--------|----------------------------------|
+  | filter | Default → allow/block traffic    |
+  | nat    | Network Address Translation      |
+  | mangle | Modify packets                   |
 
-Demo: Observe when Security group allows but iptables blocks
+  > Chains
+  | Chain   | Meaning                     |
+  |---------|-----------------------------|
+  | INPUT   | Incoming traffic            |
+  | OUTPUT  | Outgoing traffic            |
+  | FORWARD | Passing through server      |
+
+  > Actions (Targets)
+  | Action | Meaning              |
+  |--------|----------------------|
+  | ACCEPT | Allow traffic        |
+  | DROP   | Block silently       |
+  | REJECT | Block with response  |
+
+Difference between iptables and AWS Security Groups? 
+  Both controls traffic but they work at different layer of your system
+  * AWS Security Group:- Virtual firewall at cloud network level. Works outside your EC2 instance at AWS infrastructure level
+  * iptables:- Firewall inside your EC2 instance (OS level). Inside linux operating system. Controls packets at kernel level
+
+# Hands-on: Observe when Security group allows but iptables blocks
 
 o Run a web server on port 8080
 o Allow port 8080 in Security Groups
