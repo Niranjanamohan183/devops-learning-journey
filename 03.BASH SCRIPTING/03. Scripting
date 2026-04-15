@@ -119,5 +119,28 @@ Permanent Setup
 echo 'export PATH=$PATH:$(pwd)' >> ~/.bashrcsource ~/.bashrc
 
 🔹 Shell Script to Host Website
-#!/bin/bashPORT=$1# Create Website foldermkdir -p websitecd website# Create Sample HTML filecat <<EOF > index.html<html><head><title>My Website</title></head><body><h1>Welcome to My Website</h1><p>Hosted using shell script</p></body></html>EOF# Start serverecho "Starting Website on Port $PORT"nohup python3 -m http.server $PORT > server.log 2>&1 &echo "Website is running at http://13.206.81.151:$PORT"
 
+#!/bin/bash
+
+PORT=$1
+
+# Create Website folder
+mkdir -p website
+cd website
+
+# Create Sample HTML file
+cat <<EOF > index.html
+<html>
+<head><title>My Website</title></head>
+<body>
+<h1>Welcome to My Website</h1>
+<p>Hosted using shell script</p>
+</body>
+</html>
+EOF
+
+# Start server
+echo "Starting Website on Port $PORT"
+nohup python3 -m http.server $PORT > server.log 2>&1 &
+
+echo "Website is running at http://13.206.81.151:$PORT"
