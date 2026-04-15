@@ -1,0 +1,123 @@
+🐧 Advanced Bash Scripting Notes
+
+📄 Source:
+
+🔹 Passing Arguments to a Script
+What does “Passing Arguments” Mean?
+
+Giving input to a script at the time of execution.
+
+Example:
+./script.sh hello world
+hello → first argument
+world → second argument
+🔹 Basic Hands-on
+Step 1: Create script
+ nano args.sh
+Step 2: Add Code
+#!/bin/bash
+
+echo "Script name: $0"
+echo "First argument: $1"
+echo "Second argument: $2"
+echo "Total arguments: $#"
+Step 3: Run Script
+chmod u+x args.sh
+./args.sh Jatin Goel
+
+🔹 How Bash Accesses Arguments
+
+| Variable | Meaning             |
+| -------- | ------------------- |
+| $0       | Script Name         |
+| $1       | First argument      |
+| $2       | Second argument     |
+| $#       | Number of arguments |
+| $@       | All arguments       |
+
+🔹 Loop Through Arguments
+#!/bin/bashfor arg in "$@"do  echo "Argument: $arg"done
+
+🔹 Use Case 1: Install Any Package (Dynamic Script)
+#!/bin/bashpackage=$1echo "Installing package..."sudo apt update && sudo apt install $package -y
+
+🔹 Use Case 2: Run Application on Custom Port
+#!/bin/bashPORT=$1echo "Starting server on port $PORT in background"python3 -m http.server $PORT &
+
+🔹 Conditional Statements
+Basic if statement
+if [ condition ]then  commandsfi
+
+Example
+num=10if [ $num -gt 5 ]then  echo "Number is greater than 5"fi
+
+if-else
+num=3if [ $num -gt 5 ]then  echo "Greater"else  echo "Smaller"fi
+
+if-elif-else
+num=10if [ $num -lt 5 ]then  echo "Less than 5"elif [ $num -eq 10 ]then  echo "Equal to 10"else  echo "Greater than 5"fi
+
+🔹 Hands-on Scripts
+Check if service is running
+#!/bin/bashif systemctl is-active --quiet nginxthen  echo "Nginx is running"else  echo "Nginx is stopped"fi
+
+User Input + Condition
+#!/bin/bashread -p "Enter number: " numif [ $num -gt 10 ]then  echo "Greater than 10"else  echo "Less or equal to 10"fi
+
+🔹 Functions
+Syntax
+Method 1
+function myfunc {  echo "Hello from function"}
+Method 2
+myfunc() {  echo "Hello from function"}
+Call Function
+myfunc
+
+Function Example
+#!/bin/bashgreet() {  echo "Hello from function"}greet
+
+Function with Arguments
+#!/bin/bashgreet() {  echo "Hello $1"}greet Jatin
+
+Multiple Arguments
+#!/bin/bashadd() {  sum=$(($1 + $2))  echo "Sum is $sum"}add 10 20
+
+🔹 Multiple Functions Script (Real-Time Use Case)
+#!/bin/bash# Function 1: Check Diskcheck_disk() {  usage=$(df / | awk 'NR==2 {print $5}' | sed 's/%//')  echo "Disk usage: $usage%"  if [ $usage -gt 80 ]  then    echo "Disk usage high"  else    echo "Disk is healthy"  fi}# Function 2: Check Servicecheck_service() {  service=$1  if systemctl is-active --quiet $service  then    echo "Service is running"  else    echo "Service is not running"  fi}# Function 3: Start Servicestart_service() {  service=$1  echo "Starting service"  sudo systemctl start $service}# Main Functionmain() {  echo "system check started"  check_disk  check_service nginx}main
+
+🔹 Loops in Shell
+Without Loop
+echo "Hello"echo "Hello"echo "Hello"
+With Loop
+for i in {1..3}do  echo "Hello"done
+
+Types of Loops
+LoopUse CaseforFixed number of timeswhileUntil condition is trueuntilUntil condition becomes true
+
+for loop
+for i in {1..5}do  echo "Iteration $i"done
+
+while loop
+i=1while [ $i -le 5 ]do  echo "Count: $i"  ((i++))done
+
+until loop
+i=1until [ $i -gt 5 ]do  echo "Number: $i"  ((i++))done
+
+Use Case: Retry API Calls
+for ((i=1; i<=5; i++))do  echo "Attempt $i"  curl -s http://localhost:8080 && break  sleep 2done
+
+🔹 PATH Environment Variable
+What is PATH?
+Tells Linux where to look for executable commands.
+Check PATH
+echo $PATH
+
+Add Current Directory to PATH (Temporary)
+export PATH=$PATH:$(pwd)
+
+Permanent Setup
+echo 'export PATH=$PATH:$(pwd)' >> ~/.bashrcsource ~/.bashrc
+
+🔹 Shell Script to Host Website
+#!/bin/bashPORT=$1# Create Website foldermkdir -p websitecd website# Create Sample HTML filecat <<EOF > index.html<html><head><title>My Website</title></head><body><h1>Welcome to My Website</h1><p>Hosted using shell script</p></body></html>EOF# Start serverecho "Starting Website on Port $PORT"nohup python3 -m http.server $PORT > server.log 2>&1 &echo "Website is running at http://13.206.81.151:$PORT"
+
