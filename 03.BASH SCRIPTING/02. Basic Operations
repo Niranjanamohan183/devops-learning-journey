@@ -130,7 +130,7 @@ fi
 
 
 🔹 10. User Input
-------------------------------
+-------------------
 read name
 echo "Hello $name"
 
@@ -145,7 +145,7 @@ city=${city:-"Delhi"}
 
 
 🔹 11. Important Commands
-------------------------------
+--------------------------
 df -h        → disk usage
 ss -tuln     → open ports
 awk          → text processing
