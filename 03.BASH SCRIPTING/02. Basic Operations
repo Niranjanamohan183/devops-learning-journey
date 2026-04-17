@@ -5,67 +5,67 @@
 
 🔹 1. Operators in Shell
 ------------------------------
-Types:
-- Arithmetic
-- Relational
-- Logical
-- String
-- File Test
+ Types:
+  - Arithmetic
+  - Relational
+  - Logical
+  - String
+  - File Test
 
 
 🔹 2. Arithmetic Operators
 ------------------------------
-a=10
-b=5
+  a=10
+  b=5
 
-echo $((a + b))
-echo $((a - b))
-echo $((a * b))
-echo $((a / b))
+  echo $((a + b))
+  echo $((a - b))
+  echo $((a * b))
+  echo $((a / b))
 
 
 🔹 3. Relational Operators
-------------------------------
--eq → equal
--ne → not equal
--gt → greater than
--lt → less than
--ge → greater or equal
--le → less or equal
+---------------------------
+  -eq → equal
+  -ne → not equal
+  -gt → greater than
+  -lt → less than
+  -ge → greater or equal
+  -le → less or equal
 
-Example:
-if [ $a -gt $b ]
-then
- echo "a is greater"
-fi
+ Example:
+  if [ $a -gt $b ]
+  then
+  echo "a is greater"
+  fi
 
 
 🔹 4. Logical Operators
-------------------------------
-&& → AND (both true)
-|| → OR (any true)
-!  → NOT
+------------------------
+  && → AND (both true)
+  || → OR (any true)
+  !  → NOT
 
-Example:
-if [ $a -gt 5 ] && [ $b -lt 10 ]
-then
- echo "both true"
-fi
+  Example:
+  if [ $a -gt 5 ] && [ $b -lt 10 ]
+  then
+  echo "both true"
+  fi
 
 
 🔹 5. String Operators
-------------------------------
-=   → equal
-!=  → not equal
--z  → empty string
--n  → not empty
+-----------------------
+  =   → equal
+  !=  → not equal
+  -z  → empty string
+  -n  → not empty
 
-Example:
-name="Jatin"
-if [ "$name" = "Jatin" ]
-then
- echo "Match"
-fi
+  Example:
+  name="Jatin"
+  if [ "$name" = "Jatin" ]
+  then
+  echo "Match"
+  fi
 
 
 🔹 6. File Test Operators
@@ -101,7 +101,7 @@ fi
 
 
 🔹 8. File Backup Script
-------------------------------
+-------------------------
 #!/bin/bash
 
 FILE="file.txt"
@@ -115,7 +115,7 @@ fi
 
 
 🔹 9. Port Check Script
-------------------------------
+------------------------
 #!/bin/bash
 
 PORT=8080
