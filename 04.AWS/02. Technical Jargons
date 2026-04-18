@@ -1,0 +1,69 @@
+Technical Jargons
+
+Fault Tolerance vs High Availability
+------------------------------------
+
+# High Availability
+
+Maximizing the uptime and minimizing the downtime
+
+System stays available most of the time, even if failure happen
+
+# Fault Tolerance
+
+System continues working without any interruption, even during failure
+
+Use High Availability
+
+▪ Websites  
+▪ Apps  
+▪ E-commerce
+
+Use Fault Tolerance
+
+▪ Banking  
+▪ Military Systems  
+▪ Critical Healthcare
+
+Reliability vs High Availability
+--------------------------------
+
+# Reliability
+
+Ability of a system to perform correctly and consistently over time without failure
+
+Key Focus
+
+▪ Correctness  
+▪ Stability  
+▪ Fewer Failures
+
+# High Availability
+
+Ability of a system to be accessible with minimal downtime.
+
+Scenario:
+
+Case 1: Reliable but not highly available
+
+▪ Single server  
+▪ Works perfectly  
+▪ But if it crashes -> site down
+
+Case 2: Highly Available but NOT Reliable
+
+▪ Multiple servers  
+▪ But app has bugs
+
+Elasticity vs Scalability
+-------------------------
+
+Elasticity = Automatic Scaling
+
+# Scalability
+
+Ability of a system to handle the load by adjusting the resources
+
+# Elasticity
+
+Ability of a system to automatically adjust the resources based on demand
