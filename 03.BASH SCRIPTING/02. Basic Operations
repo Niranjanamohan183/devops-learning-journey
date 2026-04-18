@@ -121,32 +121,32 @@ fi
 PORT=8080
 
 if ss -tuln | grep -q ":$PORT"
-then
- echo "Port already in use"
-else
- echo "Starting server"
+ then
+  echo "Port already in use"
+ else
+  echo "Starting server"
  python3 -m http.server $PORT
-fi
+ fi
 
 
 🔹 10. User Input
 -------------------
-read name
-echo "Hello $name"
+ read name
+ echo "Hello $name"
 
-With prompt:
-read -p "Enter age: " age
+ With prompt:
+ read -p "Enter age: " age
 
-Hidden input:
-read -s -p "Enter password: " pass
+ Hidden input:
+ read -s -p "Enter password: " pass
 
-Default value:
-city=${city:-"Delhi"}
+ Default value:
+ city=${city:-"Delhi"}
 
 
 🔹 11. Important Commands
 --------------------------
-df -h        → disk usage
-ss -tuln     → open ports
-awk          → text processing
-sed          → string replace
+ df -h        → disk usage
+ ss -tuln     → open ports
+ awk          → text processing
+ sed          → string replace

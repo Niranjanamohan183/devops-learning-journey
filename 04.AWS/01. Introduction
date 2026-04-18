@@ -1,0 +1,33 @@
+==============================
+📘 AWS - Amazon Webservices 
+==============================
+
+What is Cloud Computing ? 
+  * Cloud Computing is the on-demand delivery of IT resources over the internet with pay as-you go pricing model. 
+  * Cloud Computing asks you to stop thinking about your infrastructure in terms of  hardware and start thinking about your 
+     infrastructure in terms of software. 
+
+Cloud Service Models 
+ • IaaS (Infrastructure as a service) 
+   Cloud provider gives virtual machines, storage, networking
+   => You manage 
+    ▪ OS 
+    ▪ Software 
+    ▪ Applications 
+  Example: Amazon EC2, Azure VMs, Google Compute Engine
+
+  • PaaS (Platform as a service) 
+    Platform to deploy applications without managing OS 
+    => You manage 
+      ▪ Code 
+      ▪ Application 
+    => Cloud manages 
+      ▪ OS 
+      ▪ Runtime 
+      ▪ Infrastructure 
+      Examples: AWS Elastic Beanstalk 
+  • SaaS (Software as a service) 
+    Ready to use software over the internet 
+    => You manage 
+       Nothing (just use it) 
+       Examples: Gmail, Zoom, Google Docs 
