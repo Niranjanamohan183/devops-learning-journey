@@ -30,7 +30,7 @@ Reliability vs High Availability
 
 # Reliability
 
-Ability of a system to perform correctly and consistently over time without failure
+ Ability of a system to perform correctly and consistently over time without failure
 
 Key Focus
 
@@ -40,7 +40,7 @@ Key Focus
 
 # High Availability
 
-Ability of a system to be accessible with minimal downtime.
+ Ability of a system to be accessible with minimal downtime.
 
 Scenario:
 
@@ -62,8 +62,8 @@ Elasticity = Automatic Scaling
 
 # Scalability
 
-Ability of a system to handle the load by adjusting the resources
+ Ability of a system to handle the load by adjusting the resources
 
 # Elasticity
 
-Ability of a system to automatically adjust the resources based on demand
+ Ability of a system to automatically adjust the resources based on demand
