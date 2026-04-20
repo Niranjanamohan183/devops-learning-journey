@@ -1,0 +1,8 @@
+EC2 - Elastic Cloud Compute
+
+Demo 1 : Install Apache Http 
+
+sudo apt update
+sudo apt install apache2 -y
+sudo apt systemctl status apache2
+
