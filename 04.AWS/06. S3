@@ -1,0 +1,94 @@
+S3 for a DevOps Engineer
+
+• CI/CD Artifact Storage
+Store build outputs (JAR, ZIP, Docker bundles)
+
+• Static Website hosting
+Host frontend apps (No server needed)
+
+• Backup and Disaster Recovery
+Store database backups, config backups
+
+• Log Storage
+Centralized logging. Application logs, ELB logs, CloudTrail logs
+
+
+Static Website hosting
+
+Demo: Launch an EC2 instance, install a web server, fetch the content from the s3 bucket and run the website on EC2 instance
+
+Solution 1: Using Linux Commands
+
+Step 1: Launch an ubuntu based EC2 instance
+
+Step 2: Connect using EC2 instance connect
+
+Step 3: Install apache 2 package
+
+sudo apt update
+
+sudo apt install apache2 -y
+
+Step 4: Check the status of apache2
+
+sudo systemctl status apache2
+
+Step 5: Download the files from S3 using wget command
+
+Step 6: Test the access using EC2 public ip
+
+
+Solution 2: Using AWS Commands
+
+Refer the recording for this demo
+
+
+S3 Versioning
+
+Keeps multiple versions of the same object in S3 bucket to keep track of the historical changes
+
+
+Why versioning is important
+
+Without Versioning
+
+• File overwritten -> old data lost
+
+• Accidental delete -> gone forever
+
+
+With Versioning
+
+• Restore previous versions
+
+• Recover deleted files
+
+• Track changes
+
+
+What is a Delete Marker?
+
+A delete marker is a special “placeholder” created when you delete an object in a version-enabled bucket.
+
+Deleting an object in versioning enabled bucket will not actually remove the object.
+
+
+Q: Can we delete an object permanently in the versioning enabled S3 bucket?
+
+Yes, by deleting all the object versions
+
+
+S3 Storage Classes
+
+What are S3 Storage Classes?
+
+Different tiers of storage designed for cost vs access frequency
+
+
+S3 Object Lifecycle Management
+
+What is an S3 lifecycle Rule?
+
+A lifecycle rule is an automated policy that moves or deletes objects in S3 over time.
+
+Data ages -> S3 automatically transitions or deletes it
