@@ -1,351 +1,353 @@
-# ☁️ Auto Scaling & VPC Introduction – Single Unit Notes
+Auto Scaling in AWS
 
-📄 Source: AutoScaling&VPCIntro.pdf
+What is Auto Scaling?
 
----
+Automatically add or remove resources based on demand
 
-# 🔹 Auto Scaling in AWS
+Traffic (inc) -> add servers
 
-## What is Auto Scaling?
+Traffic (dec) -> removing servers
 
-Automatically adds or removes resources based on demand.
 
-- Traffic increases → Add servers  
-- Traffic decreases → Remove servers
+EC2 Auto Scaling
 
-Used mainly with **EC2 Auto Scaling**
+Core Components of Auto Scaling
 
----
+• Launch Template
 
-# 🔹 Core Components of Auto Scaling
+Blueprint for EC2 instances
 
-## 1️⃣ Launch Template
+Contains
 
-Blueprint for launching EC2 instances.
+▪ AMI
 
-Contains:
+▪ Instance type
 
-- AMI  
-- Instance Type  
-- Security Group  
-- Key Pair  
-- User Data
+▪ Security group
 
----
 
-## 2️⃣ Auto Scaling Group (ASG)
+• Auto Scaling Group (ASG)
 
-Group of EC2 instances managed together.
+Group of EC2 instances managed together
 
-### Key Settings:
+Key Settings
 
-- Minimum Instances  
-- Maximum Instances  
-- Desired Capacity
+▪ Min instances
 
-Example:
+▪ Max instances
 
-- Min = 2  
-- Max = 4  
-- Desired = 2
+▪ Desired Capacity
 
----
 
-## 3️⃣ Scaling Policies
+• Scaling Policies
 
-Rules that decide when to scale.
+Rules for Scaling
 
-### Types:
+Types
 
-### Target Tracking
+▪ Target Tracking
 
-Maintain a metric automatically.
+Keep CPU at 50%
 
-Example:
+▪ Step Scaling
 
-- Keep CPU at 50%
+CPU > 70% -> add 1 instance
 
-### Step Scaling
+CPU > 75% -> add 2 instances
 
-Scale based on thresholds.
+▪ Scheduled Scaling
 
-Example:
+Scale at specific time
 
-- CPU > 70% → Add 1 instance  
-- CPU > 75% → Add 2 instances
 
-### Scheduled Scaling
+Demo: EC2 Auto Scaling Hands-on
 
-Scale at a specific time.
+Step 1: Launching an EC2 instance with a user-data script (Setting up a PHP application on EC2)
 
-Example:
+Step 2: Create a custom AMI out of this running EC2 instance
 
-- Add servers at 9 AM sale time
 
----
+What is an AMI?
 
-# 🔹 AMI (Amazon Machine Image)
+AMI (Amazon Machine Image) = template to launch EC2 instance
 
-Template used to launch EC2 instances.
 
-Contains:
+What is a Custom AMI?
 
-- OS  
-- Installed Software  
-- Configurations
+A custom AMI is an image you create from your own configured EC2 instance
 
----
+Install -> Configure EC2 -> Save as AMI -> Resue anytime
 
-# 🔹 Custom AMI
 
-AMI created from your own configured EC2 instance.
+Why Use Custom AMI?
 
-### Flow:
+Without Custom AMI
 
-Install → Configure EC2 → Create AMI → Reuse Anytime
+• Install software manually every time
 
-### Benefits:
+• Time-consuming
 
-- Faster deployment  
-- Same setup every time  
-- Saves manual work
 
----
+With Custom AMI
 
-# 🔹 Load Balancer
+• Pre-configured server
 
-Distributes traffic to multiple servers.
+• Faster deployment
 
-Benefits:
+• Consistency
 
-- High Availability  
-- Fault Tolerance  
-- Better Performance
 
----
+Note: Once the custom AMI is available terminate the EC2 instance
 
-# 🔹 Application Load Balancer (ALB)
 
-Works at **Layer 7 (HTTP/HTTPS)**
+Step 3: Create a load balancer
 
-Smart routing based on:
+• Create a target group without any instance added manually
 
-- URL Path  
-- Hostname  
-- Rules
+• Create a security group for Load balancer with HTTP traffic allowed from anywhere
 
-### Best For:
 
-- Web Applications  
-- REST APIs  
-- Microservices
+Step 4: Create the Auto Scaling Group
 
-### Flow:
+• Setting up a launch template
 
-User → ALB → Decides based on URL → Server
+• Define the Auto scaling group
 
----
+▪ Desired capacity: 2
 
-# 🔹 Network Load Balancer (NLB)
+▪ Minimum: 2
 
-Works at **Layer 4 (TCP/UDP)**
+▪ Maximum: 4
 
-Routes based on:
+• Add the target tracking scaling policy with cpu utilization in the target range of 30%
 
-- IP Address  
-- Port
 
-### Best For:
+Step 5: Test the Load balancer DNS
 
-- High Performance Apps  
-- Low Latency  
-- Gaming  
-- TCP Traffic
 
-### Flow:
+Step 6: Increase the load on application
 
-User → NLB → Based on Port/IP → Server
+• Click the load test button and test the auto scaling behaviour
 
----
 
-# 🔹 VPC (Virtual Private Cloud)
+Application Load Balancer vs Network Load Balancer
 
-Your own private network inside AWS.
 
-### Definition:
+ALB:
 
-VPC = Isolated network in the cloud
+User -> ALB -> decides based on URL -> Server
 
----
+Smart Routing (HTTP level)
 
-# 🔹 Important Points
+Best for
 
-## Is VPC Regional?
+• Web applications
 
-✅ Yes
+• Microservices
 
-VPC is created in a region.
+• Rest APIs
 
-## Can VPC span multiple Regions?
 
-❌ No
+NLB:
 
-## Can VPC span multiple AZs?
+User -> NLB -> forwards based on IP/Port -> Server
 
-✅ Yes
+Fast routing (Network level)
 
-Inside same region only.
+Best for
 
----
+• Ultra high performance
 
-# 🔹 Default VPC
+• Low Latency
 
-AWS automatically creates one default VPC in every region.
+• Supports TCP/UDP
 
-Used for:
+• Static IP support
 
-- Learning  
-- Quick Launch
 
----
+VPC (Virtual Private Cloud)
 
-# 🔹 Why Default VPC Not Good for Production?
+A VPC is your own private network inside AWS
 
-## Security Issues
+VPC = Your isolated network in the Cloud
 
-- Public subnets by default  
-- Direct internet access possible
+• VPC is a regional service (make a selection of region)
 
-## Poor Architecture
 
-No clear separation of:
+Q: Can a VPC spans across multiple AWS Regions?
 
-- Web Layer  
-- App Layer  
-- Database Layer
+No
 
-## Limited Control
 
-- Hard routing design  
-- Hard segmentation
+Q: Can a VPC spans across multiple Availability zones ?
 
-## Compliance Problems
+An Amazon VPC is created at regional level, so it can span across multiple AZs within that region.
 
-Some companies need:
 
-- Private networks  
-- Strict firewall rules
+Default VPC (in AWS)
 
----
+A Default VPC is a ready-made virtual network that AWS automatically creates for you in each region when you setup your AWS account
 
-# 🔹 Core Components of VPC
+Default VPC: pre-configured network so you can launch resources instantly without setup
 
-## 1️⃣ CIDR Block
 
-IP range for VPC.
+Q: Can a default VPC suitable for everything?
 
-Example:
+It’s great for learning and quick setup but not for production use. A Default VPC in AWS is designed for convenience, not security and scalability
 
-10.0.0.0/16
 
----
+Where Default VPC becomes a bad choice
 
-## 2️⃣ Subnets
 
-Smaller networks inside VPC.
+Security Issue
 
-### Public Subnet
+• All subnets are public
 
-- Internet access
+• Instances can direct internet access
 
-### Private Subnet
+• Not aligned with best practice (no isolation)
 
-- No direct internet access
 
----
+No proper Architecture
 
-## 3️⃣ Internet Gateway (IGW)
+• No separation of
 
-Allows internet access for public subnet.
+▪ Web layer
 
----
+▪ App layer
 
-## 4️⃣ NAT Gateway
+▪ Database layer
 
-Allows private subnet to access internet outbound only.
+• No Private subnets
 
-Used for:
 
-- Updates  
-- Package install
+Limited Scalability and Control
 
----
+• Hard to design:
 
-## 5️⃣ Route Table
+▪ Multi-tier architecture
 
-Rules for traffic routing.
+▪ Fine-grained routing
 
----
+▪ Network segmentation
 
-## 6️⃣ Security Groups
 
-Instance-level firewall.
+Compliance Problems
 
-Controls:
+• Many organizations require:
 
-- Inbound Rules  
-- Outbound Rules
+▪ Private networks
 
----
+▪ Strict firewall rules
 
-## 7️⃣ NACL (Network ACL)
+• Default VPC doesn’t meet these standards
 
-Subnet-level firewall.
 
----
+Core Components of VPC
 
-# 🔹 Architecture Flow
+
+CIDR (Classless Interdomain Routing) Block
+
+IP address assignment scheme. Range of IP addresses for VPC
+
+
+Subnets
+
+Smaller network inside VPC
+
+▪ Public Subnet
+
+Has internet access
+
+▪ Private Subnet
+
+No direct internet
+
+
+Internet Gateway (IGW)
+
+Enables internet access
+
+
+Route Table
+
+Rules for traffic routing
+
+
+NAT (Network Address Translation) Gateway
+
+Allows private subnets to access internet
+
+
+Security Groups
+
+Instance-level firewall
+
+
+Network ACL (NACL)
+
+Subnet-level firewall
+
+
+Architecture Flow
 
 VPC
 
-- Public Subnet → Internet via IGW  
-- Private Subnet → Internet via NAT
+|------ Public Subnet -> Internet via IGW
 
----
+|------ Private Subnet -> Internet via NAT
 
-# 🔹 Interview Questions
 
-## Which Load Balancer works on Layer 7?
+Q: Which load balancer works on layer 7?
 
-✅ ALB
+A. NLB
 
-## Best for High Performance TCP Traffic?
+B. ALB (Correct)
 
-✅ NLB
+C. CLB
 
-## What does Auto Scaling do?
+D. GWLB
 
-✅ Add / Remove EC2 Instances
 
-## Custom AMI used for?
+Q: Which is best for high-performance TCP traffic
 
-✅ Faster Deployment
+A. ALB
 
-## Which subnet has direct internet access?
+B. NLB (Correct)
 
-✅ Public Subnet
+C. S3
 
----
+D. CloudFront
 
-# 🔹 One Line Revision
 
-- Auto Scaling = Automatic server count adjustment  
-- Launch Template = EC2 blueprint  
-- ASG = Manages EC2 group  
-- ALB = HTTP smart routing  
-- NLB = Fast TCP routing  
-- VPC = Private AWS network  
-- IGW = Public internet access  
-- NAT = Private subnet internet access  
-- SG = Instance firewall  
-- NACL = Subnet firewall
+Q: What does Auto Scaling do?
+
+A. Backup data
+
+B. Add/remove EC2 instances (Correct)
+
+C. Encrypt data
+
+D. Manage DNS
+
+
+Q: Custom AMI is used for?
+
+A. Deleting instances
+
+B. Faster deployment (Correct)
+
+C. DNS resolution
+
+D. Monitoring
+
+
+Q: Which Subnet type has direct internet access?
+
+A. Public (Correct)
+
+B. Private
+
+C. Hybrid
+
+D. Isolated
