@@ -202,7 +202,7 @@ Where Default VPC becomes a bad choice
 Security Issue
 
 • All subnets are public
-
+ 
 • Instances can direct internet access
 
 • Not aligned with best practice (no isolation)
